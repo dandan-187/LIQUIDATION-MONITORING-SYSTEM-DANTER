@@ -5,79 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel & Meal Liquidation</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #111;
-            color: white;
-        }
-        .container {
-            width: 90%;
-            max-width: 400px;
-            margin: auto;
-            padding: 20px;
-            background-color: #222;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #0f0;
-        }
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            border: none;
-        }
-        .total {
-            font-size: 24px;
-            font-weight: bold;
-            color: lime;
-        }
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-        }
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .total-section { margin-top: 10px; font-size: 18px; }
+        .add-row { cursor: pointer; font-size: 20px; color: green; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Travel & Meal Liquidation</h2>
-        <label>Enter Amounts:</label>
-        <input type="number" id="amount" placeholder="Enter travel amount" oninput="calculateTotal()">
-        
-        <label>Select Meal Amount:</label>
-        <select id="meal" onchange="calculateTotal()">
-            <option value="0">0</option>
-            <option value="80">80</option>
-            <option value="140">140</option>
-            <option value="240">240</option>
-        </select>
-        
-        <p class="total">Total: <span id="total">0</span></p>
-        
-        <div class="buttons">
-            <button onclick="clearFields()" style="background-color: red;">Clear</button>
-            <button onclick="sendToMessenger()" style="background-color: blue;">Send to Ma'am Irene</button>
-        </div>
+    <h2>Travel & Meal Liquidation</h2>
+    <table id="travelTable">
+        <tr>
+            <th>FROM</th>
+            <th>TO</th>
+            <th>MODE</th>
+            <th>AMOUNT</th>
+        </tr>
+    </table>
+    <button class="add-row" onclick="addRow()">➕ Add Row</button>
+    <div class="total-section">
+        <p>TRAVEL: <span id="travelTotal">0</span></p>
+        <p>MEAL: <input type="number" id="mealTotal" value="0" onchange="calculateTotal()"></p>
+        <p><strong>TOTAL: <span id="grandTotal">0</span></strong></p>
     </div>
-    
     <script>
+        const modes = ["🚌 BUS", "🛵 TRICYCLE", "🚖 TAXI", "🚎 JEEP", "🚆 TRAIN", "🚈 LRT/MRT"];
+        function addRow() {
+            let table = document.getElementById("travelTable");
+            let row = table.insertRow(-1);
+            row.innerHTML = `
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td>
+                    <select>${modes.map(mode => `<option>${mode}</option>`).join('')}</select>
+                </td>
+                <td><input type="number" class="amount" value="0" onchange="calculateTotal()"></td>
+            `;
+        }
         function calculateTotal() {
-            let travel = parseFloat(document.getElementById('amount').value) || 0;
-            let meal = parseFloat(document.getElementById('meal').value) || 0;
-            document.getElementById('total').textContent = travel + meal;
+            let travelTotal = [...document.querySelectorAll(".amount")].reduce((sum, input) => sum + Number(input.value || 0), 0);
+            let mealTotal = Number(document.getElementById("mealTotal").value || 0);
+            document.getElementById("travelTotal").textContent = travelTotal;
+            document.getElementById("grandTotal").textContent = travelTotal + mealTotal;
         }
-
-        function clearFields() {
-            if (confirm("Are you sure you want to delete all?")) {
-                document.getElementById('amount').value = '';
-                document.getElementById('meal').value = '0';
-                document.getElementById('total').textContent = '0';
-            }
-        }
-
-        function sendToMessenger() {
-            window.location.href = "https://m.me/danter.gaza.1";
-        }
+        for (let i = 0; i < 8; i++) addRow();
     </script>
 </body>
 </html>
