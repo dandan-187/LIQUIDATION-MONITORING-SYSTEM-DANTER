@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSTECH LIQUIDATION SYSTEM</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+        th {
+            background: #ddd;
+        }
+        .add-row {
+            background: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .meal-input {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2><b>SYSTECH LIQUIDATION SYSTEM</b></h2>
+        <table id="dataTable">
+            <tr>
+                <th>FROM</th>
+                <th>TO</th>
+                <th>VEHICLE</th>
+                <th>AMOUNT</th>
+            </tr>
+            
+            <!-- Pre-added 6 rows -->
+            <script>
+                for (let i = 0; i < 6; i++) {
+                    document.write(<tr>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td>
+                            <select>
+                                <option>🚌 BUS</option>
+                                <option>🚖 TAXI</option>
+                                <option>🛺 TRICYCLE</option>
+                                <option>🚋 TRAIN/LRT/MRT</option>
+                                <option>🚎 JEEP</option>
+                            </select>
+                        </td>
+                        <td><input type="number" value="0" oninput="calculateTotal()"></td>
+                    </tr>);
+                }
+            </script>
+        </table>
+        <button class="add-row" onclick="addRow()">+ Add Row</button>
+        <br>
+        <div>
+            <label>TRAVEL: <span id="travelAmount">0</span></label>
+        </div>
+        <div>
+            <label>MEAL: 
+                <select class="meal-input" id="mealAmount" onchange="calculateTotal()">
+                    <option value="0">0</option>
+                    <option value="80">80</option>
+                    <option value="140">140</option>
+                    <option value="240">240</option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <label><b>TOTAL: <span id="totalAmount">0</span></b></label>
+        </div>
+    </div>
+    <script>
+        function addRow() {
+            let table = document.getElementById("dataTable");
+            let row = table.insertRow(-1);
+            row.innerHTML = <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td>
+                                <select>
+                                    <option>🚌 BUS</option>
+                                    <option>🚖 TAXI</option>
+                                    <option>🛺 TRICYCLE</option>
+                                    <option>🚋 TRAIN/LRT/MRT</option>
+                                    <option>🚎 JEEP</option>
+                                </select>
+                            </td>
+                            <td><input type="number" value="0" oninput="calculateTotal()"></td>;
+            calculateTotal();
+        }
+        function calculateTotal() {
+            let travelTotal = 0;
+            let amounts = document.querySelectorAll("#dataTable input[type='number']");
+            amounts.forEach(amount => {
+                travelTotal += Number(amount.value);
+            });
+            document.getElementById("travelAmount").innerText = travelTotal;
+            let mealAmount = Number(document.getElementById("mealAmount").value);
+            document.getElementById("totalAmount").innerText = travelTotal + mealAmount;
+        }
+    </script>
+</body>
+</html>
