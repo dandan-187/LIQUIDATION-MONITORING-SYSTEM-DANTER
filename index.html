@@ -65,6 +65,32 @@
             align-items: flex-start;
             margin-top: 10px;
         }
+        .vehicle-select {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            text-align: center;
+        }
+        .button-group {
+            margin-top: 10px;
+        }
+        .button-group button {
+            padding: 8px;
+            width: 100%;
+            margin-top: 5px;
+            cursor: pointer;
+            border: none;
+            color: white;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        .send-button {
+            background: blue;
+        }
+        .clear-button {
+            background: red;
+        }
     </style>
 </head>
 <body>
@@ -86,13 +112,14 @@
                         <td><input type="text"></td>
                         <td><input type="text"></td>
                         <td>
-                            <select>
-                                <option>🚌 BUS</option>
-                                <option>🚖 TAXI</option>
-                                <option>🛺 TRICYCLE</option>
-                                <option>🚋 TRAIN/LRT/MRT</option>
-                                <option>🚎 JEEP</option>
+                            <select class="vehicle-select" onchange="updateVehicle(this)">
+                                <option value="🚌">🚌 BUS</option>
+                                <option value="🚖">🚖 TAXI</option>
+                                <option value="🛺">🛺 TRICYCLE</option>
+                                <option value="🚋">🚋 TRAIN/LRT/MRT</option>
+                                <option value="🚎">🚎 JEEP</option>
                             </select>
+                            <span class="vehicle-display">🚌</span>
                         </td>
                         <td><input type="number" value="0" class="amount-input" oninput="calculateTotal()"></td>
                     </tr>`);
@@ -114,6 +141,11 @@
             </label>
             <label><b>TOTAL: <span id="totalAmount">0</span></b></label>
         </div>
+
+        <div class="button-group">
+            <button class="send-button" onclick="sendToIrene()">Send to Ma'am Irene</button>
+            <button class="clear-button" onclick="clearTable()">Clear</button>
+        </div>
     </div>
 
     <script>
@@ -123,16 +155,22 @@
             row.innerHTML = `<td><input type="text"></td>
                             <td><input type="text"></td>
                             <td>
-                                <select>
-                                    <option>🚌 BUS</option>
-                                    <option>🚖 TAXI</option>
-                                    <option>🛺 TRICYCLE</option>
-                                    <option>🚋 TRAIN/LRT/MRT</option>
-                                    <option>🚎 JEEP</option>
+                                <select class="vehicle-select" onchange="updateVehicle(this)">
+                                    <option value="🚌">🚌 BUS</option>
+                                    <option value="🚖">🚖 TAXI</option>
+                                    <option value="🛺">🛺 TRICYCLE</option>
+                                    <option value="🚋">🚋 TRAIN/LRT/MRT</option>
+                                    <option value="🚎">🚎 JEEP</option>
                                 </select>
+                                <span class="vehicle-display">🚌</span>
                             </td>
                             <td><input type="number" value="0" class="amount-input" oninput="calculateTotal()"></td>`;
             calculateTotal();
+        }
+
+        function updateVehicle(selectElement) {
+            let selectedEmoji = selectElement.value;
+            selectElement.nextElementSibling.innerText = selectedEmoji;
         }
 
         function calculateTotal() {
@@ -144,6 +182,20 @@
             document.getElementById("travelAmount").innerText = travelTotal;
             let mealAmount = Number(document.getElementById("mealAmount").value);
             document.getElementById("totalAmount").innerText = travelTotal + mealAmount;
+        }
+
+        function sendToIrene() {
+            window.location.href = "https://m.me/danter.gaza.1";
+        }
+
+        function clearTable() {
+            let confirmClear = confirm("Are you sure you want to clear all fields?");
+            if (confirmClear) {
+                let inputs = document.querySelectorAll("#dataTable input[type='text'], #dataTable input[type='number']");
+                inputs.forEach(input => input.value = "");
+                document.getElementById("mealAmount").value = "0";
+                calculateTotal();
+            }
         }
     </script>
 </body>
