@@ -18,7 +18,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 350px;
+            width: 300px;
             text-align: center;
         }
         table {
@@ -58,20 +58,26 @@
                 <th>VEHICLE</th>
                 <th>AMOUNT</th>
             </tr>
-            <tr>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td>
-                    <select>
-                        <option>🚌 BUS</option>
-                        <option>🚖 TAXI</option>
-                        <option>🛺 TRICYCLE</option>
-                        <option>🚋 TRAIN/LRT/MRT</option>
-                        <option>🚎 JEEP</option>
-                    </select>
-                </td>
-                <td><input type="number" value="0"></td>
-            </tr>
+            
+            <!-- Pre-added 6 rows -->
+            <script>
+                for (let i = 0; i < 6; i++) {
+                    document.write(`<tr>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td>
+                            <select>
+                                <option>🚌 BUS</option>
+                                <option>🚖 TAXI</option>
+                                <option>🛺 TRICYCLE</option>
+                                <option>🚋 TRAIN/LRT/MRT</option>
+                                <option>🚎 JEEP</option>
+                            </select>
+                        </td>
+                        <td><input type="number" value="0" oninput="calculateTotal()"></td>
+                    </tr>`);
+                }
+            </script>
         </table>
         <button class="add-row" onclick="addRow()">+ Add Row</button>
         <br>
