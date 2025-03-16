@@ -19,7 +19,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 320px; /* Increased width for adjustments */
             text-align: center;
         }
         table {
@@ -27,31 +27,50 @@
             border-collapse: collapse;
             margin-top: 10px;
         }
-        th, td {
-            border: 1px solid black;
+        th {
+            text-align: center;
+            background: none;
+            border: none;
+            font-weight: bold;
+        }
+        td {
             padding: 5px;
             text-align: center;
-        }
-        th {
-            background: #ddd;
-        }
-        .add-row {
-            background: green;
-            color: white;
-            padding: 10px;
             border: none;
+        }
+        input, select {
             width: 100%;
-            cursor: pointer;
-            margin-top: 10px;
+            border: none;
+            background: transparent;
+            font-size: 14px;
+            text-align: center;
+        }
+        .amount-input {
+            width: 60px; /* Reduced width for Amount column */
+            font-size: 12px; /* Decreased font size */
         }
         .meal-input {
-            width: 100px;
+            font-size: 12px; /* Decreased font size */
+            border: none;
+            background: transparent;
+            appearance: none; /* Removes dropdown box */
+        }
+        .totals {
+            text-align: left;
+            font-size: 12px; /* Decreased font size */
+        }
+        .total-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h2><b>SYSTECH LIQUIDATION SYSTEM</b></h2>
+        
         <table id="dataTable">
             <tr>
                 <th>FROM</th>
@@ -75,17 +94,16 @@
                                 <option>🚎 JEEP</option>
                             </select>
                         </td>
-                        <td><input type="number" value="0" oninput="calculateTotal()"></td>
+                        <td><input type="number" value="0" class="amount-input" oninput="calculateTotal()"></td>
                     </tr>`);
                 }
             </script>
         </table>
+
         <button class="add-row" onclick="addRow()">+ Add Row</button>
-        <br>
-        <div>
+        
+        <div class="total-container">
             <label>TRAVEL: <span id="travelAmount">0</span></label>
-        </div>
-        <div>
             <label>MEAL: 
                 <select class="meal-input" id="mealAmount" onchange="calculateTotal()">
                     <option value="0">0</option>
@@ -94,11 +112,10 @@
                     <option value="240">240</option>
                 </select>
             </label>
-        </div>
-        <div>
             <label><b>TOTAL: <span id="totalAmount">0</span></b></label>
         </div>
     </div>
+
     <script>
         function addRow() {
             let table = document.getElementById("dataTable");
@@ -114,9 +131,10 @@
                                     <option>🚎 JEEP</option>
                                 </select>
                             </td>
-                            <td><input type="number" value="0" oninput="calculateTotal()"></td>`;
+                            <td><input type="number" value="0" class="amount-input" oninput="calculateTotal()"></td>`;
             calculateTotal();
         }
+
         function calculateTotal() {
             let travelTotal = 0;
             let amounts = document.querySelectorAll("#dataTable input[type='number']");
