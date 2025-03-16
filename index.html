@@ -1,83 +1,93 @@
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
-import { Plus } from "lucide-react";
-
-const TravelLiquidation = () => {
-  const [rows, setRows] = useState([
-    { from: "", to: "", vehicle: "", amount: "" },
-  ]);
-
-  const addRow = () => {
-    setRows([...rows, { from: "", to: "", vehicle: "", amount: "" }]);
-  };
-
-  const handleInputChange = (index, field, value) => {
-    const newRows = [...rows];
-    newRows[index][field] = value;
-    setRows(newRows);
-  };
-
-  const calculateTotal = () => {
-    const travelTotal = rows.reduce((sum, row) => sum + (Number(row.amount) || 0), 0);
-    const mealTotal = 80;
-    return { travelTotal, mealTotal, grandTotal: travelTotal + mealTotal };
-  };
-
-  const { travelTotal, mealTotal, grandTotal } = calculateTotal();
-
-  return (
-    <div className="flex flex-col items-center w-full p-4">
-      <Card className="w-full max-w-sm p-4">
-        <CardContent>
-          <div className="flex flex-col gap-2">
-            {rows.map((row, index) => (
-              <div key={index} className="grid grid-cols-4 gap-2 items-center">
-                <Input
-                  placeholder="From"
-                  value={row.from}
-                  onChange={(e) => handleInputChange(index, "from", e.target.value)}
-                />
-                <Input
-                  placeholder="To"
-                  value={row.to}
-                  onChange={(e) => handleInputChange(index, "to", e.target.value)}
-                />
-                <Select onValueChange={(value) => handleInputChange(index, "vehicle", value)}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="🚍" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="bus">🚌</SelectItem>
-                    <SelectItem value="tricycle">🛺</SelectItem>
-                    <SelectItem value="taxi">🚖</SelectItem>
-                    <SelectItem value="jeep">🚎</SelectItem>
-                    <SelectItem value="train">🚆</SelectItem>
-                  </SelectContent>
-                </Select>
-                <Input
-                  type="number"
-                  placeholder="₱ Amount"
-                  value={row.amount}
-                  onChange={(e) => handleInputChange(index, "amount", e.target.value)}
-                />
-              </div>
-            ))}
-            <Button onClick={addRow} variant="outline" className="w-full mt-2">
-              <Plus size={16} />
-            </Button>
-            <div className="mt-4 text-center text-lg">
-              <p>🚖 Travel: ₱{travelTotal}</p>
-              <p>🍽️ Meal: ₱{mealTotal}</p>
-              <p className="font-bold">💰 Total: ₱{grandTotal}</p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Expense Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            font-size: 14px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .add-row {
+            margin-top: 10px;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Travel Expense</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Mode</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Rows will be inserted dynamically -->
+            </tbody>
+        </table>
+        <button class="add-row" onclick="addRow()">+</button>
     </div>
-  );
-};
 
-export default TravelLiquidation;
+    <script>
+        function addRow() {
+            let tableBody = document.getElementById("table-body");
+            let row = document.createElement("tr");
+            row.innerHTML = `
+                <td><input type="text" placeholder="From"></td>
+                <td><input type="text" placeholder="To"></td>
+                <td>
+                    <select>
+                        <option>🚌</option>
+                        <option>🚖</option>
+                        <option>🚲</option>
+                        <option>🚆</option>
+                    </select>
+                </td>
+                <td><input type="number" placeholder="Amount"></td>
+            `;
+            tableBody.appendChild(row);
+        }
+    </script>
+</body>
+</html>
