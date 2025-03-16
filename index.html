@@ -19,7 +19,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 320px; /* Increased width for adjustments */
+            width: 320px;
             text-align: center;
         }
         table {
@@ -46,24 +46,8 @@
             text-align: center;
         }
         .amount-input {
-            width: 60px; /* Reduced width for Amount column */
-            font-size: 12px; /* Decreased font size */
-        }
-        .meal-input {
-            font-size: 12px; /* Decreased font size */
-            border: none;
-            background: transparent;
-            appearance: none; /* Removes dropdown box */
-        }
-        .totals {
-            text-align: left;
-            font-size: 12px; /* Decreased font size */
-        }
-        .total-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-top: 10px;
+            width: 60px;
+            font-size: 12px;
         }
         .vehicle-select {
             width: 100%;
@@ -71,6 +55,28 @@
             background: transparent;
             font-size: 14px;
             text-align: center;
+            appearance: none;
+        }
+        .vehicle-container {
+            position: relative;
+        }
+        .vehicle-arrow {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 14px;
+        }
+        .totals {
+            text-align: left;
+            font-size: 12px;
+        }
+        .total-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
         }
         .button-group {
             margin-top: 10px;
@@ -105,21 +111,21 @@
                 <th>AMOUNT</th>
             </tr>
             
-            <!-- Pre-added 6 rows -->
             <script>
                 for (let i = 0; i < 6; i++) {
                     document.write(`<tr>
                         <td><input type="text"></td>
                         <td><input type="text"></td>
                         <td>
-                            <select class="vehicle-select" onchange="updateVehicle(this)">
-                                <option value="🚌">🚌 BUS</option>
-                                <option value="🚖">🚖 TAXI</option>
-                                <option value="🛺">🛺 TRICYCLE</option>
-                                <option value="🚋">🚋 TRAIN/LRT/MRT</option>
-                                <option value="🚎">🚎 JEEP</option>
-                            </select>
-                            <span class="vehicle-display">🚌</span>
+                            <div class="vehicle-container">
+                                <select class="vehicle-select" onchange="updateVehicle(this)">
+                                    <option value="🚌">🚌 BUS</option>
+                                    <option value="🛺">🛺 TRICYCLE</option>
+                                    <option value="🚋">🚋 TRAIN/LRT/MRT</option>
+                                    <option value="🚎">🚎 JEEP</option>
+                                </select>
+                                <span class="vehicle-arrow">▼</span>
+                            </div>
                         </td>
                         <td><input type="number" value="0" class="amount-input" oninput="calculateTotal()"></td>
                     </tr>`);
@@ -155,22 +161,18 @@
             row.innerHTML = `<td><input type="text"></td>
                             <td><input type="text"></td>
                             <td>
-                                <select class="vehicle-select" onchange="updateVehicle(this)">
-                                    <option value="🚌">🚌 BUS</option>
-                                    <option value="🚖">🚖 TAXI</option>
-                                    <option value="🛺">🛺 TRICYCLE</option>
-                                    <option value="🚋">🚋 TRAIN/LRT/MRT</option>
-                                    <option value="🚎">🚎 JEEP</option>
-                                </select>
-                                <span class="vehicle-display">🚌</span>
+                                <div class="vehicle-container">
+                                    <select class="vehicle-select" onchange="updateVehicle(this)">
+                                        <option value="🚌">🚌 BUS</option>
+                                        <option value="🛺">🛺 TRICYCLE</option>
+                                        <option value="🚋">🚋 TRAIN/LRT/MRT</option>
+                                        <option value="🚎">🚎 JEEP</option>
+                                    </select>
+                                    <span class="vehicle-arrow">▼</span>
+                                </div>
                             </td>
                             <td><input type="number" value="0" class="amount-input" oninput="calculateTotal()"></td>`;
             calculateTotal();
-        }
-
-        function updateVehicle(selectElement) {
-            let selectedEmoji = selectElement.value;
-            selectElement.nextElementSibling.innerText = selectedEmoji;
         }
 
         function calculateTotal() {
