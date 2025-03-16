@@ -20,3 +20,38 @@ input {
   width: 100%;
   box-sizing: border-box;
 }
+
+td {
+    padding: 5px;
+    text-align: center;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vehicle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+}
+
+.vehicle-select {
+    width: 35px;
+    height: 30px;
+    font-size: 22px;
+    border: none;
+    background: transparent;
+    appearance: none;
+    text-align: center;
+}
+
+.amount-input {
+    width: 30px;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+    background: transparent;
+}
+
