@@ -1,55 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel & Meal Liquidation</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid black; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        .total-section { margin-top: 10px; font-size: 18px; }
-        .add-row { cursor: pointer; font-size: 20px; color: green; }
-    </style>
-</head>
-<body>
-    <h2>Travel & Meal Liquidation</h2>
-    <table id="travelTable">
-        <tr>
-            <th>FROM</th>
-            <th>TO</th>
-            <th>MODE</th>
-            <th>AMOUNT</th>
-        </tr>
-    </table>
-    <button class="add-row" onclick="addRow()">➕ Add Row</button>
-    <div class="total-section">
-        <p>TRAVEL: <span id="travelTotal">0</span></p>
-        <p>MEAL: <input type="number" id="mealTotal" value="0" onchange="calculateTotal()"></p>
-        <p><strong>TOTAL: <span id="grandTotal">0</span></strong></p>
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Plus } from "lucide-react";
+
+const TravelLiquidation = () => {
+  const [rows, setRows] = useState([
+    { from: "", to: "", vehicle: "", amount: "" },
+  ]);
+
+  const addRow = () => {
+    setRows([...rows, { from: "", to: "", vehicle: "", amount: "" }]);
+  };
+
+  const handleInputChange = (index, field, value) => {
+    const newRows = [...rows];
+    newRows[index][field] = value;
+    setRows(newRows);
+  };
+
+  const calculateTotal = () => {
+    const travelTotal = rows.reduce((sum, row) => sum + (Number(row.amount) || 0), 0);
+    const mealTotal = 80;
+    return { travelTotal, mealTotal, grandTotal: travelTotal + mealTotal };
+  };
+
+  const { travelTotal, mealTotal, grandTotal } = calculateTotal();
+
+  return (
+    <div className="flex flex-col items-center w-full p-4">
+      <Card className="w-full max-w-sm p-4">
+        <CardContent>
+          <div className="flex flex-col gap-2">
+            {rows.map((row, index) => (
+              <div key={index} className="grid grid-cols-4 gap-2 items-center">
+                <Input
+                  placeholder="From"
+                  value={row.from}
+                  onChange={(e) => handleInputChange(index, "from", e.target.value)}
+                />
+                <Input
+                  placeholder="To"
+                  value={row.to}
+                  onChange={(e) => handleInputChange(index, "to", e.target.value)}
+                />
+                <Select onValueChange={(value) => handleInputChange(index, "vehicle", value)}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="🚍" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="bus">🚌</SelectItem>
+                    <SelectItem value="tricycle">🛺</SelectItem>
+                    <SelectItem value="taxi">🚖</SelectItem>
+                    <SelectItem value="jeep">🚎</SelectItem>
+                    <SelectItem value="train">🚆</SelectItem>
+                  </SelectContent>
+                </Select>
+                <Input
+                  type="number"
+                  placeholder="₱ Amount"
+                  value={row.amount}
+                  onChange={(e) => handleInputChange(index, "amount", e.target.value)}
+                />
+              </div>
+            ))}
+            <Button onClick={addRow} variant="outline" className="w-full mt-2">
+              <Plus size={16} />
+            </Button>
+            <div className="mt-4 text-center text-lg">
+              <p>🚖 Travel: ₱{travelTotal}</p>
+              <p>🍽️ Meal: ₱{mealTotal}</p>
+              <p className="font-bold">💰 Total: ₱{grandTotal}</p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
-    <script>
-        const modes = ["🚌 BUS", "🛵 TRICYCLE", "🚖 TAXI", "🚎 JEEP", "🚆 TRAIN", "🚈 LRT/MRT"];
-        function addRow() {
-            let table = document.getElementById("travelTable");
-            let row = table.insertRow(-1);
-            row.innerHTML = `
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td>
-                    <select>${modes.map(mode => `<option>${mode}</option>`).join('')}</select>
-                </td>
-                <td><input type="number" class="amount" value="0" onchange="calculateTotal()"></td>
-            `;
-        }
-        function calculateTotal() {
-            let travelTotal = [...document.querySelectorAll(".amount")].reduce((sum, input) => sum + Number(input.value || 0), 0);
-            let mealTotal = Number(document.getElementById("mealTotal").value || 0);
-            document.getElementById("travelTotal").textContent = travelTotal;
-            document.getElementById("grandTotal").textContent = travelTotal + mealTotal;
-        }
-        for (let i = 0; i < 8; i++) addRow();
-    </script>
-</body>
-</html>
+  );
+};
+
+export default TravelLiquidation;
