@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel & Meal Liquidation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #111;
+            color: white;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #0f0;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        .total {
+            font-size: 24px;
+            font-weight: bold;
+            color: lime;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Travel & Meal Liquidation</h2>
+        <label>Enter Amounts:</label>
+        <input type="number" id="amount" placeholder="Enter travel amount" oninput="calculateTotal()">
+        
+        <label>Select Meal Amount:</label>
+        <select id="meal" onchange="calculateTotal()">
+            <option value="0">0</option>
+            <option value="80">80</option>
+            <option value="140">140</option>
+            <option value="240">240</option>
+        </select>
+        
+        <p class="total">Total: <span id="total">0</span></p>
+        
+        <div class="buttons">
+            <button onclick="clearFields()" style="background-color: red;">Clear</button>
+            <button onclick="sendToMessenger()" style="background-color: blue;">Send to Ma'am Irene</button>
+        </div>
+    </div>
+    
+    <script>
+        function calculateTotal() {
+            let travel = parseFloat(document.getElementById('amount').value) || 0;
+            let meal = parseFloat(document.getElementById('meal').value) || 0;
+            document.getElementById('total').textContent = travel + meal;
+        }
+
+        function clearFields() {
+            if (confirm("Are you sure you want to delete all?")) {
+                document.getElementById('amount').value = '';
+                document.getElementById('meal').value = '0';
+                document.getElementById('total').textContent = '0';
+            }
+        }
+
+        function sendToMessenger() {
+            window.location.href = "https://m.me/danter.gaza.1";
+        }
+    </script>
+</body>
+</html>
