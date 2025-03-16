@@ -3,90 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Expense Tracker</title>
+    <title>SYSTECH LIQUIDATION SYSTEM</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            text-align: center;
             margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 10px;
         }
         table {
             width: 100%;
-            max-width: 400px;
             border-collapse: collapse;
+            margin-bottom: 10px;
         }
         th, td {
-            border: 1px solid black;
-            padding: 8px;
+            border: 1px solid #000;
+            padding: 5px;
             text-align: center;
         }
-        th {
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        .add-row {
-            margin-top: 10px;
-            font-size: 20px;
+        .btn {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
             cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .summary {
+            text-align: right;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>From</th>
-                <th>To</th>
-                <th>Mode</th>
-                <th>Amount</th>
-            </tr>
-        </thead>
-        <tbody id="travelTable">
-            <!-- Initial 8 rows -->
-            <script>
-                for (let i = 0; i < 8; i++) {
-                    document.write(`<tr>
-                        <td><input type="text" placeholder="Enter"/></td>
-                        <td><input type="text" placeholder="Enter"/></td>
-                        <td>
-                            <select>
-                                <option>🚌 Bus</option>
-                                <option>🚖 Taxi</option>
-                                <option>🚊 Train</option>
-                                <option>🛺 Tricycle</option>
-                                <option>🚎 Jeep</option>
-                            </select>
-                        </td>
-                        <td><input type="number" placeholder="0"/></td>
-                    </tr>`);
-                }
-            </script>
-        </tbody>
-    </table>
-    <button class="add-row" onclick="addRow()">+</button>
+    <div class="container">
+        <h2>SYSTECH LIQUIDATION SYSTEM</h2>
+        <table id="expenseTable">
+            <thead>
+                <tr>
+                    <th>FROM</th>
+                    <th>TO</th>
+                    <th>VEHICLE</th>
+                    <th>AMOUNT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td>
+                        <select>
+                            <option>🚌</option>
+                            <option>🚖</option>
+                            <option>🚲</option>
+                            <option>🚆</option>
+                            <option>🚊</option>
+                        </select>
+                    </td>
+                    <td><input type="number" class="amount" value="0" onchange="calculateTotal()"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn" onclick="addRow()">➕ Add Row</button>
+        <div class="summary">
+            <p>TRAVEL: <span id="travelTotal">0</span></p>
+            <p>MEAL: <input type="number" id="mealAmount" value="0" onchange="calculateTotal()"></p>
+            <p><strong>TOTAL: <span id="totalAmount">0</span></strong></p>
+        </div>
+    </div>
     <script>
         function addRow() {
-            const table = document.getElementById("travelTable");
-            const row = document.createElement("tr");
+            let table = document.getElementById("expenseTable").getElementsByTagName('tbody')[0];
+            if (table.rows.length >= 8) return;
+            let row = table.insertRow();
             row.innerHTML = `
-                <td><input type="text" placeholder="Enter"/></td>
-                <td><input type="text" placeholder="Enter"/></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
                 <td>
                     <select>
-                        <option>🚌 Bus</option>
-                        <option>🚖 Taxi</option>
-                        <option>🚊 Train</option>
-                        <option>🛺 Tricycle</option>
-                        <option>🚎 Jeep</option>
+                        <option>🚌</option>
+                        <option>🚖</option>
+                        <option>🚲</option>
+                        <option>🚆</option>
+                        <option>🚊</option>
                     </select>
                 </td>
-                <td><input type="number" placeholder="0"/></td>
+                <td><input type="number" class="amount" value="0" onchange="calculateTotal()"></td>
             `;
-            table.appendChild(row);
+        }
+
+        function calculateTotal() {
+            let amounts = document.querySelectorAll(".amount");
+            let travelTotal = 0;
+            amounts.forEach(input => travelTotal += Number(input.value));
+            document.getElementById("travelTotal").innerText = travelTotal;
+            let mealAmount = Number(document.getElementById("mealAmount").value);
+            document.getElementById("totalAmount").innerText = travelTotal + mealAmount;
         }
     </script>
 </body>
