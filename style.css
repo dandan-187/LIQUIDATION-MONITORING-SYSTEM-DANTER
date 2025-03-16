@@ -1,3 +1,15 @@
+.no-border {
+    border: none;
+    background: transparent;
+}
+.small-input {
+    width: 50px;
+    font-size: 12px;
+}
+.totals {
+    text-align: left;
+}
+
 table {
   width: 100%;
   table-layout: fixed;
