@@ -7,86 +7,86 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #f8f8f8;
-        }
-        .container {
-            width: 90%;
-            max-width: 400px;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            margin: 0;
         }
         table {
             width: 100%;
+            max-width: 400px;
             border-collapse: collapse;
         }
         th, td {
-            border: 1px solid #ddd;
+            border: 1px solid black;
             padding: 8px;
             text-align: center;
-            font-size: 14px;
         }
         th {
-            background-color: #f4f4f4;
+            font-weight: bold;
+            text-transform: uppercase;
         }
         .add-row {
             margin-top: 10px;
-            padding: 10px;
-            background: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
+            font-size: 20px;
             cursor: pointer;
-            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Travel Expense</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>From</th>
-                    <th>To</th>
-                    <th>Mode</th>
-                    <th>Amount</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-                <!-- Rows will be inserted dynamically -->
-            </tbody>
-        </table>
-        <button class="add-row" onclick="addRow()">+</button>
-    </div>
-
+    <table>
+        <thead>
+            <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Mode</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody id="travelTable">
+            <!-- Initial 8 rows -->
+            <script>
+                for (let i = 0; i < 8; i++) {
+                    document.write(`<tr>
+                        <td><input type="text" placeholder="Enter"/></td>
+                        <td><input type="text" placeholder="Enter"/></td>
+                        <td>
+                            <select>
+                                <option>🚌 Bus</option>
+                                <option>🚖 Taxi</option>
+                                <option>🚊 Train</option>
+                                <option>🛺 Tricycle</option>
+                                <option>🚎 Jeep</option>
+                            </select>
+                        </td>
+                        <td><input type="number" placeholder="0"/></td>
+                    </tr>`);
+                }
+            </script>
+        </tbody>
+    </table>
+    <button class="add-row" onclick="addRow()">+</button>
     <script>
         function addRow() {
-            let tableBody = document.getElementById("table-body");
-            let row = document.createElement("tr");
+            const table = document.getElementById("travelTable");
+            const row = document.createElement("tr");
             row.innerHTML = `
-                <td><input type="text" placeholder="From"></td>
-                <td><input type="text" placeholder="To"></td>
+                <td><input type="text" placeholder="Enter"/></td>
+                <td><input type="text" placeholder="Enter"/></td>
                 <td>
                     <select>
-                        <option>🚌</option>
-                        <option>🚖</option>
-                        <option>🚲</option>
-                        <option>🚆</option>
+                        <option>🚌 Bus</option>
+                        <option>🚖 Taxi</option>
+                        <option>🚊 Train</option>
+                        <option>🛺 Tricycle</option>
+                        <option>🚎 Jeep</option>
                     </select>
                 </td>
-                <td><input type="number" placeholder="Amount"></td>
+                <td><input type="number" placeholder="0"/></td>
             `;
-            tableBody.appendChild(row);
+            table.appendChild(row);
         }
     </script>
 </body>
