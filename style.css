@@ -62,8 +62,9 @@ select {
 
 /* New Styles for Column Width Adjustments */
 td input[type="number"] {
-    width: 70px; /* Limiting the width to fit 3 digits (e.g., 999) */
+    width: 60px; /* Restrict width to fit 3 digits, e.g., 999 */
     text-align: center; /* Center align the numbers */
+    padding: 5px;
 }
 
 td input[type="text"] {
