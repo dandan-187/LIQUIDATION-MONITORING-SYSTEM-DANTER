@@ -67,11 +67,10 @@ td input[type="number"] {
     padding: 5px;
 }
 
-td input[type="text"] {
-    width: 100%; /* Full width for 'From' and 'To' inputs */
-    white-space: normal;  /* Allow word wrapping */
-    word-wrap: break-word; /* Break words when necessary */
+td textarea {
+    width: 100%; /* Full width for 'From' and 'To' textareas */
     padding: 5px; /* Add some padding for better visibility */
+    resize: none;  /* Disable resizing of the textarea */
 }
 
 td select {
