@@ -60,20 +60,15 @@ select {
     box-sizing: border-box;
 }
 
-/* Fixes for the input fields to reduce the width */
+/* New Styles for Column Width Adjustments */
 td input[type="number"] {
-    width: 60px; /* 3-digit width for Amount input */
-    text-align: center; /* Center-align the text */
-    border: none; /* Remove borders */
-    background: transparent; /* Transparent background for a cleaner look */
-    padding: 5px; /* Add padding to make it look neat */
+    width: 40px; /* Restrict width to fit 3 digits, e.g., 999 */
+    text-align: center; /* Center align the numbers */
+    padding: 5px;
 }
 
 td input[type="text"] {
-    width: 100%; /* Full width for From/To inputs */
-    border: none; /* No border */
-    background: transparent; /* Transparent background */
-    padding: 5px;
+    width: 100%; /* Full width for 'From' and 'To' inputs */
 }
 
 td select {
@@ -81,7 +76,7 @@ td select {
 }
 
 th:nth-child(1), th:nth-child(2) {
-    width: 40%; /* From and To columns */
+    width: 40%; /* Increase width of 'From' and 'To' columns */
 }
 
 th:nth-child(3) {
