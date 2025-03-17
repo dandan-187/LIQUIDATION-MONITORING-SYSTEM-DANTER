@@ -17,8 +17,8 @@
                 <th>AMT</th>
             </tr>
             <tr>
-                <td><div class="editable" contenteditable="true"></div></td>
-                <td><div class="editable" contenteditable="true"></div></td>
+                <td><input type="text"></td> <!-- No border for 'FROM' input -->
+                <td><input type="text"></td> <!-- No border for 'TO' input -->
                 <td>
                     <select>
                         <option>🚌 BUS</option>
@@ -28,7 +28,7 @@
                         <option>🚍 JEEP</option>
                     </select>
                 </td>
-                <td><div class="editable" contenteditable="true" style="text-align: center; width: 40px;"></div></td>
+                <td><input type="number" value="0" style="width: 60px; text-align: center;"></td> <!-- 3-digit width for Amount -->
             </tr>
         </table>
         <button class="add-row" onclick="addRow()">+ Add Row</button>
@@ -54,8 +54,8 @@
         function addRow() {
             let table = document.getElementById("dataTable");
             let row = table.insertRow(-1);
-            row.innerHTML = `<td><div class="editable" contenteditable="true"></div></td>
-                             <td><div class="editable" contenteditable="true"></div></td>
+            row.innerHTML = `<td><input type="text"></td>
+                             <td><input type="text"></td>
                              <td>
                                  <select>
                                     <option>🚌 BUS</option>
@@ -65,18 +65,15 @@
                                     <option>🚍 JEEP</option>
                                  </select>
                              </td>
-                             <td><div class="editable" contenteditable="true" style="text-align: center; width: 40px;"></div></td>`;
+                             <td><input type="number" value="0" oninput="calculateTotal()"></td>`;
             calculateTotal();
         }
 
         function calculateTotal() {
             let travelTotal = 0;
-            let amounts = document.querySelectorAll("#dataTable .editable");
+            let amounts = document.querySelectorAll("#dataTable input[type='number']");
             amounts.forEach(amount => {
-                // Parse the input value as a number and add it to the total
-                if (!isNaN(amount.innerText)) {
-                    travelTotal += parseFloat(amount.innerText);
-                }
+                travelTotal += Number(amount.value);
             });
             document.getElementById("travelAmount").innerText = travelTotal;
             let mealAmount = Number(document.getElementById("mealAmount").value);
