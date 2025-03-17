@@ -59,3 +59,29 @@ select {
     padding: 5px;
     box-sizing: border-box;
 }
+
+/* New Styles for Column Width Adjustments */
+td input[type="number"] {
+    width: 70px; /* Limiting the width to fit 3 digits (e.g., 999) */
+    text-align: center; /* Center align the numbers */
+}
+
+td input[type="text"] {
+    width: 100%; /* Full width for 'From' and 'To' inputs */
+}
+
+td select {
+    width: 100%; /* Full width for select elements */
+}
+
+th:nth-child(1), th:nth-child(2) {
+    width: 40%; /* Increase width of 'From' and 'To' columns */
+}
+
+th:nth-child(3) {
+    width: 30%; /* Vehicle column width */
+}
+
+th:nth-child(4) {
+    width: 30%; /* Amount column width */
+}
