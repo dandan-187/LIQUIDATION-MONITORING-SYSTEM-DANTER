@@ -17,18 +17,18 @@
                 <th>AMT</th>
             </tr>
             <tr>
-                <td><input type="text"></td> <!-- No border for 'FROM' input -->
-                <td><input type="text"></td> <!-- No border for 'TO' input -->
+                <td><input type="text"></td>
+                <td><input type="text"></td>
                 <td>
                     <select>
-                        <option>🚌 BUS</option>
-                        <option>🚖 TAXI</option>
-                        <option>🛺 TRICYCLE</option>
-                        <option>🚋 TRAIN/LRT/MRT</option>
-                        <option>🚍 JEEP</option>
+                                    <option>🚌 BUS</option>
+                                    <option>🚖 TAXI</option>
+                                    <option>🛺 TRICYCLE</option>
+                                    <option>🚋 TRAIN/LRT/MRT</option>
+                                    <option>🚍 JEEP</option>
                     </select>
                 </td>
-                <td><input type="number" value="0" style="width: 60px; text-align: center;"></td> <!-- 3-digit width for Amount -->
+                <td><input type="number" value="0"></td>
             </tr>
         </table>
         <button class="add-row" onclick="addRow()">+ Add Row</button>
@@ -54,7 +54,7 @@
         function addRow() {
             let table = document.getElementById("dataTable");
             let row = table.insertRow(-1);
-            row.innerHTML = `<td><input type="text"></td>
+            row.innerHTML = <td><input type="text"></td>
                              <td><input type="text"></td>
                              <td>
                                  <select>
@@ -65,7 +65,7 @@
                                     <option>🚍 JEEP</option>
                                  </select>
                              </td>
-                             <td><input type="number" value="0" oninput="calculateTotal()"></td>`;
+                             <td><input type="number" value="0" oninput="calculateTotal()"></td>;
             calculateTotal();
         }
 
