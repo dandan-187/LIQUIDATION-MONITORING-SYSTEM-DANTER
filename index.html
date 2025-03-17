@@ -21,11 +21,11 @@
                 <td><input type="text"></td>
                 <td>
                     <select>
-                                    <option>🚌 BUS</option>
-                                    <option>🚖 TAXI</option>
-                                    <option>🛺 TRICYCLE</option>
-                                    <option>🚋 TRAIN/LRT/MRT</option>
-                                    <option>🚍 JEEP</option>
+                        <option>🚌 BUS</option>
+                        <option>🚖 TAXI</option>
+                        <option>🛺 TRICYCLE</option>
+                        <option>🚋 TRAIN/LRT/MRT</option>
+                        <option>🚍 JEEP</option>
                     </select>
                 </td>
                 <td><input type="number" value="0"></td>
@@ -54,18 +54,20 @@
         function addRow() {
             let table = document.getElementById("dataTable");
             let row = table.insertRow(-1);
-            row.innerHTML = <td><input type="text"></td>
-                             <td><input type="text"></td>
-                             <td>
-                                 <select>
-                                    <option>🚌 BUS</option>
-                                    <option>🚖 TAXI</option>
-                                    <option>🛺 TRICYCLE</option>
-                                    <option>🚋 TRAIN/LRT/MRT</option>
-                                    <option>🚍 JEEP</option>
-                                 </select>
-                             </td>
-                             <td><input type="number" value="0" oninput="calculateTotal()"></td>;
+            row.innerHTML = `
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td>
+                    <select>
+                        <option>🚌 BUS</option>
+                        <option>🚖 TAXI</option>
+                        <option>🛺 TRICYCLE</option>
+                        <option>🚋 TRAIN/LRT/MRT</option>
+                        <option>🚍 JEEP</option>
+                    </select>
+                </td>
+                <td><input type="number" value="0" oninput="calculateTotal()"></td>
+            `;
             calculateTotal();
         }
 
