@@ -49,32 +49,33 @@ th {
     width: 100px;
 }
 
-input {
+/* Style for editable divs inside the table */
+td .editable {
     width: 100%;
+    padding: 5px;
     box-sizing: border-box;
+    text-align: center;
+    min-height: 30px;
+    border: none; /* Remove input borders */
+    outline: none; /* Remove outline on focus */
+    background-color: transparent; /* Transparent background */
+    font-size: 14px; /* Adjust font size */
 }
 
-select {
+/* Amount column width */
+td .editable[contenteditable="true"] {
+    width: 40px; /* Restrict width to fit 3 digits */
+    text-align: center; /* Center align the number */
+}
+
+/* Vehicle and other columns should have full width */
+td select {
     width: 100%;
     padding: 5px;
     box-sizing: border-box;
 }
 
 /* New Styles for Column Width Adjustments */
-td input[type="number"] {
-    width: 40px; /* Restrict width to fit 3 digits, e.g., 999 */
-    text-align: center; /* Center align the numbers */
-    padding: 5px;
-}
-
-td input[type="text"] {
-    width: 100%; /* Full width for 'From' and 'To' inputs */
-}
-
-td select {
-    width: 100%; /* Full width for select elements */
-}
-
 th:nth-child(1), th:nth-child(2) {
     width: 40%; /* Increase width of 'From' and 'To' columns */
 }
