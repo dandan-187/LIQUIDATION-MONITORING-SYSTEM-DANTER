@@ -49,35 +49,39 @@ th {
     width: 100px;
 }
 
-/* Style for editable divs inside the table */
-td .editable {
+input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+select {
     width: 100%;
     padding: 5px;
     box-sizing: border-box;
-    text-align: center;
-    min-height: 30px;
-    border: none; /* Remove input borders */
-    outline: none; /* Remove outline on focus */
-    background-color: transparent; /* Transparent background */
-    font-size: 14px; /* Adjust font size */
 }
 
-/* Amount column width */
-td .editable[contenteditable="true"] {
-    width: 40px; /* Restrict width to fit 3 digits */
-    text-align: center; /* Center align the number */
+/* Fixes for the input fields to reduce the width */
+td input[type="number"] {
+    width: 60px; /* 3-digit width for Amount input */
+    text-align: center; /* Center-align the text */
+    border: none; /* Remove borders */
+    background: transparent; /* Transparent background for a cleaner look */
+    padding: 5px; /* Add padding to make it look neat */
 }
 
-/* Vehicle and other columns should have full width */
+td input[type="text"] {
+    width: 100%; /* Full width for From/To inputs */
+    border: none; /* No border */
+    background: transparent; /* Transparent background */
+    padding: 5px;
+}
+
 td select {
-    width: 100%;
-    padding: 5px;
-    box-sizing: border-box;
+    width: 100%; /* Full width for select elements */
 }
 
-/* New Styles for Column Width Adjustments */
 th:nth-child(1), th:nth-child(2) {
-    width: 40%; /* Increase width of 'From' and 'To' columns */
+    width: 40%; /* From and To columns */
 }
 
 th:nth-child(3) {
