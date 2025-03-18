@@ -94,12 +94,12 @@ th:nth-child(4) {
     display: inline-block;
     background-color: black;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 10px;
     text-decoration: none;
     border-radius: 5px;
     margin-top: 10px;
     text-align: center;
-    width: 45%;
+    width: 100%;
     font-size: 12px;
     cursor: pointer;
 }
