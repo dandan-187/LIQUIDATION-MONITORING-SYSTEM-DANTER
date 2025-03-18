@@ -88,3 +88,23 @@ th:nth-child(3) {
 th:nth-child(4) {
     width: 30%; /* Amount column width */
 }
+
+/* Styles for the Messenger Button */
+.messenger-button {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Position the button to the left */
+.messenger-button {
+    text-align: left;
+}
