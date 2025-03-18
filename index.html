@@ -56,9 +56,20 @@
 </a>
 
 
-    <!-- Screenshot Button -->
-<a href="#" class="messenger-button" onclick="takeScreenshot()">Save Screenshot</a>
-        <script src="script.js"></script>
+    <a href="#" class="messenger-button" onclick="takeScreenshot()">Take Screenshot</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+<script>
+function takeScreenshot() {
+    html2canvas(document.body).then(function(canvas) {
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL('image/png');
+        link.download = 'screenshot.png';
+        link.click();
+    });
+}
+</script>
 
 
 
