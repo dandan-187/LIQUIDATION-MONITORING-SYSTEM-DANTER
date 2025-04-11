@@ -4,7 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYSTECH LIQUIDATION SYSTEM</title>
-    <link rel="stylesheet" href="style.css"> <!-- Linking external CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            padding: 20px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .add-row {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .add-row:hover {
+            background-color: #0056b3;
+        }
+
+        label {
+            font-size: 18px;
+        }
+
+        .messenger-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0084FF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .messenger-button:hover {
+            background-color: #005fcc;
+        }
+
+        .screenshot-button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .screenshot-button:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -28,7 +111,7 @@
                         <option>🚍 JEEP</option>
                     </select>
                 </td>
-                <td><input type="number" value="0"></td>
+                <td><input type="number" value="0" oninput="calculateTotal()"></td>
             </tr>
         </table>
         <button class="add-row" onclick="addRow()">+ Add Row</button>
@@ -50,12 +133,15 @@
             <label><b>TOTAL: <span id="totalAmount">0</span></b></label>
         </div>
 
-      <!-- Messenger Button -->
-<a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button">
-    Send to Ma'am Irene
-</a>
+        <!-- Messenger Button -->
+        <a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button">
+            Send to Ma'am Irene
+        </a>
 
+        <!-- Screenshot Button -->
+        <button class="screenshot-button" onclick="takeScreenshot()">📸 Take Screenshot</button>
     </div>
+
     <script>
         function addRow() {
             let table = document.getElementById("dataTable");
@@ -86,6 +172,43 @@
             document.getElementById("travelAmount").innerText = travelTotal;
             let mealAmount = Number(document.getElementById("mealAmount").value);
             document.getElementById("totalAmount").innerText = travelTotal + mealAmount;
+        }
+
+        function takeScreenshot() {
+            if (navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
+                navigator.mediaDevices.getDisplayMedia({ video: true })
+                    .then(stream => {
+                        const canvas = document.createElement("canvas");
+                        const video = document.createElement("video");
+                        video.srcObject = stream;
+
+                        video.onloadedmetadata = () => {
+                            video.play();
+                            const width = video.videoWidth;
+                            const height = video.videoHeight;
+                            canvas.width = width;
+                            canvas.height = height;
+
+                            const context = canvas.getContext("2d");
+                            context.drawImage(video, 0, 0, width, height);
+
+                            canvas.toBlob(blob => {
+                                const url = URL.createObjectURL(blob);
+                                const link = document.createElement('a');
+                                link.href = url;
+                                link.download = 'screenshot.png';
+                                link.click();
+                            });
+
+                            stream.getTracks().forEach(track => track.stop());
+                        };
+                    })
+                    .catch(error => {
+                        console.error('Error capturing the screen: ', error);
+                    });
+            } else {
+                alert("Screen capture is not supported in your browser.");
+            }
         }
     </script>
 </body>
