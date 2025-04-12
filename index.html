@@ -1,213 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SYSTECH LIQUIDATION SYSTEM</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
-            padding: 20px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SYSTECH DIGITAL LIQUIDATION</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #87CEEB, #FFFFFF);
+      margin: 0;
+      padding: 0;
+    }
 
-        .container {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 800px;
-            margin: auto;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    }
 
-        h2 {
-            text-align: center;
-            color: #333;
-        }
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      color: #1E90FF;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 10px;
-        }
+    .form-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+      justify-content: space-between;
+    }
 
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
+    .info-row {
+      flex: 1 1 30%;
+      display: flex;
+      flex-direction: column;
+    }
 
-        input[type="text"], input[type="number"], select {
-            width: 100%;
-            padding: 5px;
-            box-sizing: border-box;
-        }
+    .info-row label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
 
-        .add-row {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            margin-bottom: 20px;
-        }
+    .info-row input {
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
 
-        .add-row:hover {
-            background-color: #0056b3;
-        }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
 
-        label {
-            font-size: 18px;
-        }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #DDD;
+      text-align: center;
+      font-size: 15px;
+    }
 
-        .messenger-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #0084FF;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+    th {
+      background-color: #F1F1F1;
+      color: #1E90FF;
+    }
 
-        .messenger-button:hover {
-            background-color: #005fcc;
-        }
+    td input, td select {
+      background: #f9f9f9;
+      border: none;
+      padding: 8px;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
 
-        .screenshot-button {
-            padding: 10px 20px;
-            margin-top: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    td input:focus, td select:focus {
+      outline: none;
+      box-shadow: 0 0 5px 2px rgba(30, 144, 255, 0.3);
+    }
 
-        .screenshot-button:hover {
-            background-color: #218838;
-        }
-    </style>
+    .add-row {
+      background: #1E90FF;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .add-row:hover {
+      background: #1C86EE;
+    }
+
+    .input-section {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .input-section label {
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    #travelAmount,
+    #totalAmount {
+      font-size: 28px;
+      color: #1E90FF;
+      font-weight: bold;
+    }
+
+    #mealAmount {
+      font-size: 24px;
+      font-weight: bold;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: none;
+      border: none;
+      padding: 5px 10px;
+      color: #1E90FF;
+      cursor: pointer;
+    }
+
+    .meal-input option {
+      font-size: 18px;
+    }
+
+    .messenger-button {
+      display: block;
+      background-color: #1E90FF;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 30px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .messenger-button:hover {
+      background-color: #1C86EE;
+    }
+
+    .save-button {
+      display: block;
+      background-color: #28a745;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .save-button:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h3><b>SYSTECH LIQUIDATION SYSTEM</b></h3>
-        <table id="dataTable">
-            <tr>
-                <th>FROM</th>
-                <th>TO</th>
-                <th>MOT</th>
-                <th>AMT</th>
-            </tr>
-            <tr>
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td>
-                    <select>
-                        <option>🚌 BUS</option>
-                        <option>🚖 TAXI</option>
-                        <option>🛺 TRICYCLE</option>
-                        <option>🚋 TRAIN/LRT/MRT</option>
-                        <option>🚍 JEEP</option>
-                    </select>
-                </td>
-                <td><input type="number" value="0" oninput="calculateTotal()"></td>
-            </tr>
-        </table>
-        <button class="add-row" onclick="addRow()">+ Add Row</button>
-        <br>
-        <div>
-            <label>TRAVEL: <span id="travelAmount">0</span></label>
-        </div>
-        <div>
-            <label>MEAL: 
-                <select class="meal-input" id="mealAmount" onchange="calculateTotal()">
-                    <option value="0">0</option>
-                    <option value="80">80</option>
-                    <option value="140">140</option>
-                    <option value="240">240</option>
-                </select>
-            </label>
-        </div>
-        <div>
-            <label><b>TOTAL: <span id="totalAmount">0</span></b></label>
-        </div>
+  <div class="container" id="captureArea">
+    <h2>SYSTECH DIGITAL LIQUIDATION</h2>
 
-        <!-- Messenger Button -->
-        <a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button">
-            Send to Ma'am Irene
-        </a>
-        
+    <!-- Repair Form Info -->
+    <div class="form-info">
+      <div class="info-row">
+        <label>Name:</label>
+        <input type="text" id="nameInput" placeholder="Enter name" />
+      </div>
+      <div class="info-row">
+        <label>Date:</label>
+        <input type="date" id="dateInput" />
+      </div>
+      <div class="info-row">
+        <label>Branch:</label>
+        <input type="text" id="branchInput" placeholder="Enter branch" />
+      </div>
+      <div class="info-row">
+        <label>Time In:</label>
+        <input type="time" id="timeInInput" />
+      </div>
+      <div class="info-row">
+        <label>Time Out:</label>
+        <input type="time" id="timeOutInput" />
+      </div>
+      <div class="info-row">
+        <label>JO Number:</label>
+        <input type="text" id="joInput" placeholder="Enter JO number" />
+      </div>
     </div>
 
-    <script>
-        function addRow() {
-            let table = document.getElementById("dataTable");
-            let row = table.insertRow(-1);
-            row.innerHTML = `
-                <td><input type="text"></td>
-                <td><input type="text"></td>
-                <td>
-                    <select>
-                        <option>🚌 BUS</option>
-                        <option>🚖 TAXI</option>
-                        <option>🛺 TRICYCLE</option>
-                        <option>🚋 TRAIN/LRT/MRT</option>
-                        <option>🚍 JEEP</option>
-                    </select>
-                </td>
-                <td><input type="number" value="0" oninput="calculateTotal()"></td>
-            `;
-            calculateTotal();
-        }
-
-        function calculateTotal() {
-            let travelTotal = 0;
-            let amounts = document.querySelectorAll("#dataTable input[type='number']");
-            amounts.forEach(amount => {
-                travelTotal += Number(amount.value);
-            });
-            document.getElementById("travelAmount").innerText = travelTotal;
-            let mealAmount = Number(document.getElementById("mealAmount").value);
-            document.getElementById("totalAmount").innerText = travelTotal + mealAmount;
-        }
-
-        function takeScreenshot() {
-            if (navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
-                navigator.mediaDevices.getDisplayMedia({ video: true })
-                    .then(stream => {
-                        const canvas = document.createElement("canvas");
-                        const video = document.createElement("video");
-                        video.srcObject = stream;
-
-                        video.onloadedmetadata = () => {
-                            video.play();
-                            const width = video.videoWidth;
-                            const height = video.videoHeight;
-                            canvas.width = width;
-                            canvas.height = height;
-
-                            const context = canvas.getContext("2d");
-                            context.drawImage(video, 0, 0, width, height);
-
-                            canvas.toBlob(blob => {
-                                const url = URL.createObjectURL(blob);
-                                const link = document.createElement('a');
-                                link.href = url;
-                                link.download = 'screenshot.png';
-                                link.click();
-                            });
-
-                            stream.getTracks().forEach(track => track.stop());
-                        };
-                    })
-                    .catch(error => {
-                        console.error('Error capturing the screen: ', error);
-                    });
-            } else {
-                alert("Screen capture is not supported in your browser.");
-            }
-        }
-    </script>
-</body>
-</html>
+    <!-- Travel Table -->
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>FROM</th>
+          <th>TO</th>
+          <th>MOT</th>
+          <th>AMOUNT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Initial 6 rows -->
+        <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+        <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+        <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+        <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+        <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP
