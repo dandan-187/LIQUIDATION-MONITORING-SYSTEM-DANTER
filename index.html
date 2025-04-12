@@ -229,4 +229,86 @@
         <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
         <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
         <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
-        <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP
+        <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+        <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+      </tbody>
+    </table>
+
+    <!-- Add Row Button -->
+    <button class="add-row" onclick="addRow()">+ Add Row</button>
+
+    <!-- Totals -->
+    <div class="input-section">
+      <label>TRAVEL: <span id="travelAmount">0</span></label>
+      <label>MEAL:
+        <select class="meal-input" id="mealAmount" onchange="calculateTotal()">
+          <option value="0">0</option>
+          <option value="80">80</option>
+          <option value="140">140</option>
+          <option value="240">240</option>
+        </select>
+      </label>
+      <label><b>TOTAL: <span id="totalAmount">0</span></b></label>
+    </div>
+
+    <br><br><br><br><br><br>
+
+    <!-- Messenger Button -->
+    <a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button">
+      Send to Ma'am Irene
+    </a>
+
+    <!-- ✅ Save as PNG Button -->
+    <button class="save-button" onclick="saveAsImage()">💾 Save</button>
+  </div>
+
+  <!-- ✅ html2canvas script -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <script>
+    function addRow() {
+      const table = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
+      const newRow = table.insertRow();
+      newRow.innerHTML = `
+        <td><input type="text" /></td>
+        <td><input type="text" /></td>
+        <td>
+          <select>
+            <option>🚌 BUS</option>
+            <option>🚖 TAXI</option>
+            <option>🛺 TRICYCLE</option>
+            <option>🚋 TRAIN/LRT/MRT</option>
+            <option>🚍 JEEP</option>
+          </select>
+        </td>
+        <td><input type="number" value="0" oninput="calculateTotal()" /></td>
+      `;
+      calculateTotal();
+    }
+
+    function calculateTotal() {
+      let travelTotal = 0;
+      let amounts = document.querySelectorAll("#dataTable input[type='number']");
+      amounts.forEach(amount => {
+        travelTotal += Number(amount.value);
+      });
+      document.getElementById("travelAmount").innerText = travelTotal;
+      let mealAmount = Number(document.getElementById("mealAmount").value);
+      document.getElementById("totalAmount").innerText = travelTotal + mealAmount;
+    }
+
+    function saveAsImage() {
+      const target = document.getElementById('captureArea');
+      html2canvas(target).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'SYSTECH_LIQUIDATION.png';
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    }
+
+    // Calculate on load
+    calculateTotal();
+  </script>
+</body>
+</html>
