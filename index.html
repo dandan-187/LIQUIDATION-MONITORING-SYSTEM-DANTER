@@ -9,31 +9,31 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #87CEEB, #FFFFFF);
       margin: 0;
-      padding: 0;
+      padding: 40px;
     }
 
     .container {
-      max-width: 900px;
-      margin: 40px auto;
+      max-width: 1000px;
+      margin: auto;
       background: rgba(255, 255, 255, 0.95);
-      padding: 30px;
+      padding: 40px;
       border-radius: 15px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     }
 
     h2 {
       text-align: center;
-      font-size: 24px;
+      font-size: 26px;
       color: #1E90FF;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 30px;
+      margin: 30px 0;
     }
 
     .form-info {
       display: flex;
       flex-wrap: wrap;
-      gap: 25px;
+      gap: 20px;
       margin-bottom: 40px;
       justify-content: space-between;
     }
@@ -52,7 +52,7 @@
 
     .info-row input {
       padding: 12px;
-      font-size: 15px;
+      font-size: 14px;
       border-radius: 6px;
       border: 1px solid #ccc;
     }
@@ -98,7 +98,7 @@
       width: 100%;
       font-size: 16px;
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 8px;
       margin-top: 30px;
     }
 
@@ -107,7 +107,7 @@
     }
 
     .input-section {
-      margin-top: 40px;
+      margin-top: 30px;
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -134,7 +134,7 @@
       -moz-appearance: none;
       background: none;
       border: none;
-      padding: 5px 10px;
+      padding: 6px 12px;
       color: #1E90FF;
       cursor: pointer;
     }
@@ -147,10 +147,10 @@
       display: block;
       background-color: #1E90FF;
       color: white;
-      padding: 16px;
+      padding: 15px;
       text-align: center;
       text-decoration: none;
-      border-radius: 10px;
+      border-radius: 8px;
       font-weight: bold;
       margin-top: 40px;
       font-size: 16px;
@@ -165,10 +165,10 @@
       display: block;
       background-color: #28a745;
       color: white;
-      padding: 16px;
+      padding: 15px;
       text-align: center;
       text-decoration: none;
-      border-radius: 10px;
+      border-radius: 8px;
       font-weight: bold;
       margin-top: 20px;
       font-size: 16px;
@@ -182,6 +182,138 @@
   </style>
 </head>
 <body>
-<!-- ... the rest of your HTML code remains the same ... -->
+  <div class="container" id="captureArea">
+    
+    <!-- 🔲 START OF THE SCREENSHOT AREA -->
+    <div id="screenshotArea">
+      <!-- 🔽 ADDED IMAGE ABOVE TITLE -->
+      <img src="https://raw.githubusercontent.com/dandan-187/LIQUIDATION-MONITORING-SYSTEM-DANTER/main/bg.jpg"
+           alt="Background Image"
+           style="max-width: 80%; border-radius: 10px; margin-bottom: 20px;"
+           crossorigin="anonymous" />
+
+      <h2>SYSTECH DIGITAL LIQUIDATION</h2>
+
+      <!-- Repair Form Info -->
+      <div class="form-info">
+        <div class="info-row">
+          <label>Name:</label>
+          <input type="text" id="nameInput" placeholder="Enter name" />
+        </div>
+        <div class="info-row">
+          <label>Date:</label>
+          <input type="date" id="dateInput" />
+        </div>
+        <div class="info-row">
+          <label>Branch:</label>
+          <input type="text" id="branchInput" placeholder="Enter branch" />
+        </div>
+        <div class="info-row">
+          <label>Time In:</label>
+          <input type="time" id="timeInInput" />
+        </div>
+        <div class="info-row">
+          <label>Time Out:</label>
+          <input type="time" id="timeOutInput" />
+        </div>
+        <div class="info-row">
+          <label>JO Number:</label>
+          <input type="text" id="joInput" placeholder="Enter JO number" />
+        </div>
+      </div>
+
+      <!-- Travel Table -->
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>FROM</th>
+            <th>TO</th>
+            <th>MOT</th>
+            <th>AMOUNT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Initial 6 rows -->
+          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+        </tbody>
+      </table>
+
+      <button class="add-row" onclick="addRow()">+ Add Row</button>
+
+      <!-- Totals -->
+      <div class="input-section">
+        <label>TRAVEL: <span id="travelAmount">0</span></label>
+        <label>MEAL:
+          <select class="meal-input" id="mealAmount" onchange="calculateTotal()">
+            <option value="0">0</option>
+            <option value="80">80</option>
+            <option value="140">140</option>
+            <option value="240">240</option>
+          </select>
+        </label>
+        <label><b>TOTAL: <span id="totalAmount">0</span></b></label>
+      </div>
+    </div>
+    <!-- 🔲 END OF SCREENSHOT AREA -->
+
+    <!-- Messenger Button (excluded from screenshot) -->
+    <a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button">
+      Send to Ma'am Irene
+    </a>
+
+    <!-- Save Button (also excluded from screenshot) -->
+    <button class="save-button" onclick="saveAsImage()">💾 Save</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    function addRow() {
+      const table = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
+      const newRow = table.insertRow();
+      newRow.innerHTML = `
+        <td><input type="text" /></td>
+        <td><input type="text" /></td>
+        <td>
+          <select>
+            <option>🚌 BUS</option>
+            <option>🚖 TAXI</option>
+            <option>🛺 TRICYCLE</option>
+            <option>🚋 TRAIN/LRT/MRT</option>
+            <option>🚍 JEEP</option>
+          </select>
+        </td>
+        <td><input type="number" value="0" oninput="calculateTotal()" /></td>
+      `;
+      calculateTotal();
+    }
+
+    function calculateTotal() {
+      let travelTotal = 0;
+      let amounts = document.querySelectorAll("#dataTable input[type='number']");
+      amounts.forEach(amount => {
+        travelTotal += Number(amount.value);
+      });
+      document.getElementById("travelAmount").innerText = travelTotal;
+      let mealAmount = Number(document.getElementById("mealAmount").value);
+      document.getElementById("totalAmount").innerText = travelTotal + mealAmount;
+    }
+
+    function saveAsImage() {
+      const target = document.getElementById('screenshotArea');
+      html2canvas(target, { useCORS: true }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'SYSTECH_LIQUIDATION.png';
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    }
+
+    calculateTotal();
+  </script>
 </body>
 </html>
