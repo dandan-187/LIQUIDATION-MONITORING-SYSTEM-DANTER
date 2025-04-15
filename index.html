@@ -6,36 +6,35 @@
   <title>SYSTECH DIGITAL LIQUIDATION</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #fff;
-      color: #000;
-      margin: 30px;
-      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #87CEEB, #FFFFFF);
+      margin: 0;
+      padding: 0;
     }
 
     .container {
-      max-width: 1000px;
-      margin: auto;
-      background: #fff;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
     }
 
     h2 {
       text-align: center;
-      font-size: 26px;
-      color: #007bff;
+      font-size: 24px;
+      color: #1E90FF;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin: 30px 0;
+      margin-bottom: 30px;
     }
 
     .form-info {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 40px;
+      gap: 15px;
+      margin-bottom: 30px;
       justify-content: space-between;
     }
 
@@ -47,114 +46,194 @@
 
     .info-row label {
       font-weight: bold;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
+      color: #333;
     }
 
     .info-row input {
-      padding: 8px;
+      padding: 10px;
       font-size: 14px;
-      border-radius: 4px;
+      border-radius: 5px;
       border: 1px solid #ccc;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     th, td {
-      padding: 10px;
-      border: 1px solid #ccc;
+      padding: 12px 15px;
+      border: 1px solid #DDD;
       text-align: center;
+      font-size: 15px;
     }
 
     th {
-      background-color: #f2f2f2;
-      color: #007bff;
+      background-color: #F1F1F1;
+      color: #1E90FF;
     }
 
     td input, td select {
-      background: #fff;
-      border: 1px solid #ccc;
+      background: #f9f9f9;
+      border: none;
       padding: 8px;
-      border-radius: 4px;
+      border-radius: 5px;
       width: 100%;
       font-size: 14px;
       box-sizing: border-box;
     }
 
-    .add-row, .save-button, .messenger-button {
-      background-color: #007bff;
+    td input:focus, td select:focus {
+      outline: none;
+      box-shadow: 0 0 5px 2px rgba(30, 144, 255, 0.3);
+    }
+
+    .add-row {
+      background: #1E90FF;
       color: white;
       padding: 12px;
       border: none;
+      width: 100%;
       font-size: 16px;
       cursor: pointer;
-      border-radius: 6px;
-      width: 100%;
+      border-radius: 8px;
       margin-top: 20px;
     }
 
-    .add-row:hover, .save-button:hover, .messenger-button:hover {
-      background-color: #0069d9;
+    .add-row:hover {
+      background: #1C86EE;
     }
 
     .input-section {
-      margin-top: 30px;
+      margin-top: 20px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 15px;
     }
 
     .input-section label {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
+      color: #333;
     }
 
-    #travelAmount, #totalAmount {
-      font-size: 24px;
-      color: #007bff;
+    #travelAmount,
+    #totalAmount {
+      font-size: 28px;
+      color: #1E90FF;
       font-weight: bold;
     }
 
     #mealAmount {
-      font-size: 20px;
+      font-size: 24px;
       font-weight: bold;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       background: none;
-      border: 1px solid #ccc;
-      padding: 6px 12px;
-      border-radius: 4px;
-      color: #007bff;
+      border: none;
+      padding: 5px 10px;
+      color: #1E90FF;
       cursor: pointer;
     }
 
     .meal-input option {
+      font-size: 18px;
+    }
+
+    .messenger-button {
+      display: block;
+      background-color: #1E90FF;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 30px;
       font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .messenger-button:hover {
+      background-color: #1C86EE;
+    }
+
+    .save-button {
+      display: block;
+      background-color: #28a745;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .save-button:hover {
+      background-color: #218838;
     }
   </style>
 </head>
 <body>
   <div class="container" id="captureArea">
+    
+    <!-- 🔲 START OF THE SCREENSHOT AREA -->
     <div id="screenshotArea">
-      <img src="https://raw.githubusercontent.com/dandan-187/LIQUIDATION-MONITORING-SYSTEM-DANTER/main/bg.jpg" alt="Background Image" style="max-width: 100%; border-radius: 10px; margin-bottom: 20px;" crossorigin="anonymous" />
+      <!-- 🔽 ADDED IMAGE ABOVE TITLE -->
+      <img src="https://raw.githubusercontent.com/dandan-187/LIQUIDATION-MONITORING-SYSTEM-DANTER/main/bg.jpg"
+           alt="Background Image"
+           style="max-width: 80%; border-radius: 10px; margin-bottom: 10px;"
+           crossorigin="anonymous" />
 
       <h2>SYSTECH DIGITAL LIQUIDATION</h2>
 
+      <!-- Repair Form Info -->
       <div class="form-info">
-        <div class="info-row"><label>Name:</label><input type="text" id="nameInput" placeholder="Enter name" /></div>
-        <div class="info-row"><label>Date:</label><input type="date" id="dateInput" /></div>
-        <div class="info-row"><label>Branch:</label><input type="text" id="branchInput" placeholder="Enter branch" /></div>
-        <div class="info-row"><label>Time In:</label><input type="time" id="timeInInput" /></div>
-        <div class="info-row"><label>Time Out:</label><input type="time" id="timeOutInput" /></div>
-        <div class="info-row"><label>JO Number:</label><input type="text" id="joInput" placeholder="Enter JO number" /></div>
+        <div class="info-row">
+          <label>Name:</label>
+          <input type="text" id="nameInput" placeholder="Enter name" />
+        </div>
+        <div class="info-row">
+          <label>Date:</label>
+          <input type="date" id="dateInput" />
+        </div>
+        <div class="info-row">
+          <label>Branch:</label>
+          <input type="text" id="branchInput" placeholder="Enter branch" />
+        </div>
+        <div class="info-row">
+          <label>Time In:</label>
+          <input type="time" id="timeInInput" />
+        </div>
+        <div class="info-row">
+          <label>Time Out:</label>
+          <input type="time" id="timeOutInput" />
+        </div>
+        <div class="info-row">
+          <label>JO Number:</label>
+          <input type="text" id="joInput" placeholder="Enter JO number" />
+        </div>
       </div>
 
+      <!-- Travel Table -->
       <table id="dataTable">
         <thead>
-          <tr><th>FROM</th><th>TO</th><th>MOT</th><th>AMOUNT</th></tr>
+          <tr>
+            <th>FROM</th>
+            <th>TO</th>
+            <th>MOT</th>
+            <th>AMOUNT</th>
+          </tr>
         </thead>
         <tbody>
+          <!-- Initial 6 rows -->
           <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
           <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
           <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
@@ -166,6 +245,7 @@
 
       <button class="add-row" onclick="addRow()">+ Add Row</button>
 
+      <!-- Totals -->
       <div class="input-section">
         <label>TRAVEL: <span id="travelAmount">0</span></label>
         <label>MEAL:
@@ -176,11 +256,17 @@
             <option value="240">240</option>
           </select>
         </label>
-        <label>TOTAL: <span id="totalAmount">0</span></label>
+        <label><b>TOTAL: <span id="totalAmount">0</span></b></label>
       </div>
     </div>
+    <!-- 🔲 END OF SCREENSHOT AREA -->
 
-    <a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button">Send to Ma'am Irene</a>
+    <!-- Messenger Button (excluded from screenshot) -->
+    <a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button">
+      Send to Ma'am Irene
+    </a>
+
+    <!-- Save Button (also excluded from screenshot) -->
     <button class="save-button" onclick="saveAsImage()">💾 Save</button>
   </div>
 
