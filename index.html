@@ -179,14 +179,6 @@
     .save-button:hover {
       background-color: #218838;
     }
-
-    .button-container {
-      margin-top: 20px;
-    }
-
-    .second-container {
-      margin-top: 20px;
-    }
   </style>
 </head>
 <body>
@@ -194,6 +186,7 @@
     
     <!-- 🔲 START OF THE SCREENSHOT AREA -->
     <div id="screenshotArea">
+      <!-- 🔽 ADDED IMAGE ABOVE TITLE -->
       <img src="https://raw.githubusercontent.com/dandan-187/LIQUIDATION-MONITORING-SYSTEM-DANTER/main/bg.jpg"
            alt="Background Image"
            style="max-width: 80%; border-radius: 10px; margin-bottom: 10px;"
@@ -201,6 +194,7 @@
 
       <h2>SYSTECH DIGITAL LIQUIDATION</h2>
 
+      <!-- Repair Form Info -->
       <div class="form-info">
         <div class="info-row">
           <label>Name:</label>
@@ -228,6 +222,7 @@
         </div>
       </div>
 
+      <!-- Travel Table -->
       <table id="dataTable">
         <thead>
           <tr>
@@ -238,6 +233,7 @@
           </tr>
         </thead>
         <tbody>
+          <!-- Initial 6 rows -->
           <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
           <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
           <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
@@ -249,6 +245,7 @@
 
       <button class="add-row" onclick="addRow()">+ Add Row</button>
 
+      <!-- Totals -->
       <div class="input-section">
         <label>TRAVEL: <span id="travelAmount">0</span></label>
         <label>MEAL:
@@ -262,20 +259,15 @@
         <label><b>TOTAL: <span id="totalAmount">0</span></b></label>
       </div>
     </div>
+    <!-- 🔲 END OF SCREENSHOT AREA -->
 
-    <!-- New button container with added space -->
-    <div class="button-container">
-      <a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button">
-        Send to Ma'am Irene
-      </a>
+    <!-- Messenger Button (excluded from screenshot) -->
+    <a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button">
+      Send to Ma'am Irene
+    </a>
 
-      <br><br><br>
-
-      <div class="second-container">
-        <button class="save-button" onclick="saveAsImage()">💾 Save</button>
-      </div>
-    </div>
-
+    <!-- Save Button (also excluded from screenshot) -->
+    <button class="save-button" onclick="saveAsImage()">💾 Save</button>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
@@ -283,7 +275,7 @@
     function addRow() {
       const table = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
       const newRow = table.insertRow();
-      newRow.innerHTML = `
+      newRow.innerHTML = 
         <td><input type="text" /></td>
         <td><input type="text" /></td>
         <td>
@@ -296,7 +288,7 @@
           </select>
         </td>
         <td><input type="number" value="0" oninput="calculateTotal()" /></td>
-      `;
+      ;
       calculateTotal();
     }
 
