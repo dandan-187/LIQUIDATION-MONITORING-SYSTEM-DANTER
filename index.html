@@ -304,14 +304,17 @@
     }
 
     function saveAsImage() {
-      const target = document.getElementById('screenshotArea');
-      html2canvas(target, { useCORS: true }).then(canvas => {
-        const link = document.createElement('a');
-        link.download = 'SYSTECH_LIQUIDATION.png';
-        link.href = canvas.toDataURL();
-        link.click();
-      });
-    }
+  const target = document.getElementById('screenshotArea');
+  html2canvas(target, {
+    useCORS: true,
+    scale: 4  // Increase the scale for higher resolution (1 = normal, 2 = HD, 4 = 4K-ish)
+  }).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'SYSTECH_LIQUIDATION.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  });
+}
 
     calculateTotal();
   </script>
