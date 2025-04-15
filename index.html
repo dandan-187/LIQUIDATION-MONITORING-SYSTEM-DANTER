@@ -275,7 +275,7 @@
     function addRow() {
       const table = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
       const newRow = table.insertRow();
-      newRow.innerHTML = 
+      newRow.innerHTML = `
         <td><input type="text" /></td>
         <td><input type="text" /></td>
         <td>
@@ -288,7 +288,7 @@
           </select>
         </td>
         <td><input type="number" value="0" oninput="calculateTotal()" /></td>
-      ;
+      `;
       calculateTotal();
     }
 
