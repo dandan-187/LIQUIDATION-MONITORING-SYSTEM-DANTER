@@ -7,9 +7,9 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #6B7280, #E5E7EB);
+      background: linear-gradient(135deg, #F9E4D4, #D4E4F9);
       margin: 0;
-      padding: 20px;
+      padding: 10px;
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -18,28 +18,28 @@
 
     .container {
       max-width: 100%;
-      width: 90%;
-      margin: 20px auto;
-      background: rgba(255, 255, 255, 0.97);
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      width: 95%;
+      margin: 10px auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
     }
 
     h2 {
       text-align: center;
-      font-size: 1.8rem;
-      color: #1F2937;
+      font-size: 1.5rem;
+      color: #2D3748;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 20px;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
     }
 
     .form-info {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-      margin-bottom: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-bottom: 15px;
     }
 
     .info-row {
@@ -48,100 +48,112 @@
     }
 
     .info-row label {
-      font-weight: 600;
+      font-weight: 500;
       margin-bottom: 5px;
-      color: #374151;
-      font-size: 0.9rem;
+      color: #4A5568;
+      font-size: 0.85rem;
     }
 
     .info-row input {
-      padding: 10px;
-      font-size: 0.9rem;
-      border-radius: 8px;
-      border: 1px solid #D1D5DB;
-      background: #F9FAFB;
+      padding: 8px;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      border: 1px solid #CBD5E0;
+      background: #EDF2F7;
       transition: border-color 0.3s;
     }
 
     .info-row input:focus {
       outline: none;
-      border-color: #3B82F6;
-      box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+      border-color: #63B3ED;
+      box-shadow: 0 0 4px rgba(99, 179, 237, 0.3);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
     th, td {
-      padding: 10px;
-      border: 1px solid #E5E7EB;
+      padding: 8px;
+      border: 1px solid #E2E8F0;
       text-align: center;
     }
 
     th {
-      background-color: #3B82F6;
+      background-color: #63B3ED;
       color: white;
       font-weight: 600;
       text-transform: uppercase;
     }
 
     td input, td select {
-      background: #F9FAFB;
+      background: #EDF2F7;
       border: none;
-      padding: 8px;
-      border-radius: 6px;
-      width: 100%;
-      font-size: 0.85rem;
+      padding: 6px;
+      border-radius: 4px;
+      font-size: 0.8rem;
       box-sizing: border-box;
     }
 
+    td input[type="text"] {
+      width: 100%; /* Wide From and To with word wrap */
+      word-wrap: break-word;
+      white-space: normal;
+      min-height: 40px; /* Ensure it wraps properly */
+    }
+
     td select {
+      width: 80px; /* Narrower MOT */
       appearance: none;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="gray"><path d="M0 0h10v10H0z" fill="none"/><path d="M1 3l4 4 4-4"/></svg>') no-repeat right 8px center;
-      background-size: 10px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="gray"><path d="M0 0h8v8H0z" fill="none"/><path d="M1 2l3 3 3-3"/></svg>') no-repeat right 6px center;
+      background-size: 8px;
+    }
+
+    td input[type="number"] {
+      width: 60px; /* Narrower Amount */
     }
 
     td input:focus, td select:focus {
       outline: none;
-      box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+      box-shadow: 0 0 4px rgba(99, 179, 237, 0.3);
     }
 
     .add-row {
       display: block;
-      background: #3B82F6;
+      background: #63B3ED;
       color: white;
-      padding: 12px;
+      padding: 10px;
       border: none;
-      width: 50%;
+      width: 60%;
       font-size: 0.9rem;
       cursor: pointer;
-      border-radius: 8px;
-      margin: 20px auto;
+      border-radius: 6px;
+      margin: 15px auto;
       transition: background 0.3s;
     }
 
     .add-row:hover {
-      background: #2563EB;
+      background: #4299E1;
     }
 
     .input-section {
-      margin-top: 20px;
+      margin-top: 15px;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      background: #F3F4F6;
-      padding: 15px;
-      border-radius: 10px;
+      background: #F7FAFC;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #E2E8F0;
     }
 
     .input-section label {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
-      color: #1F2937;
+      color: #2D3748;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -149,66 +161,54 @@
 
     #travelAmount,
     #totalAmount {
-      font-size: 1.2rem;
-      color: #3B82F6;
+      font-size: 1.1rem;
+      color: #63B3ED;
       font-weight: bold;
     }
 
     #mealAmount {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: bold;
-      background: #F9FAFB;
-      border: 1px solid #D1D5DB;
-      padding: 8px;
-      border-radius: 6px;
-      color: #3B82F6;
+      background: #EDF2F7;
+      border: 1px solid #CBD5E0;
+      padding: 6px;
+      border-radius: 4px;
+      color: #63B3ED;
       cursor: pointer;
-      width: 100px;
+      width: 80px;
     }
 
     .meal-input option {
-      font-size: 0.9rem;
-    }
-
-    .messenger-button, .save-button {
-      display: block;
-      width: 50%;
-      padding: 12px;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 0.9rem;
-      margin: 15px auto;
-      transition: background 0.3s;
+      font-size: 0.85rem;
     }
 
     .messenger-button {
-      background: #3B82F6;
+      display: block;
+      width: 60%;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin: 10px auto;
+      background: #63B3ED;
       color: white;
+      transition: background 0.3s;
     }
 
     .messenger-button:hover {
-      background: #2563EB;
-    }
-
-    .save-button {
-      background: #10B981;
-      color: white;
-    }
-
-    .save-button:hover {
-      background: #059669;
+      background: #4299E1;
     }
 
     @media (max-width: 600px) {
       .container {
-        padding: 15px;
-        width: 95%;
+        padding: 10px;
+        width: 98%;
       }
 
       h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
 
       .form-info {
@@ -216,14 +216,14 @@
       }
 
       table {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
       }
 
       th, td {
-        padding: 8px;
+        padding: 6px;
       }
 
-      .add-row, .messenger-button, .save-button {
+      .add-row, .messenger-button {
         width: 80%;
       }
     }
@@ -232,7 +232,7 @@
 <body>
   <div class="container" id="captureArea">
     <div id="screenshotArea">
-      <img src="bg.jpg" alt="Background Image" style="max-width: 80%; border-radius: 10px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;" crossorigin="anonymous" />
+      <img src="bg.jpg" alt="Background Image" style="max-width: 80%; border-radius: 8px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;" />
 
       <h2>SYSTECH DIGITAL LIQUIDATION</h2>
 
@@ -289,15 +289,14 @@
         <label>MEAL: <select class="meal-input" id="mealAmount" onchange="calculateTotal()">
           <option value="0">0</option>
           <option value="80">80</option>
-          <option value="140">140</option>
+          <option value="160">160</option> <!-- Changed 140 to 160 -->
           <option value="240">240</option>
         </select></label>
         <label>TOTAL: <span id="totalAmount">0</span></label>
       </div>
     </div>
 
-    <a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button">Send to Ma'am Irene</a>
-    <button class="save-button" onclick="saveAsImage()">💾 Save</button>
+    <a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button" onclick="saveAsImage()">Send to Ma'am Irene</a>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
