@@ -6,205 +6,236 @@
   <title>SYSTECH DIGITAL LIQUIDATION</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #87CEEB, #FFFFFF);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6B7280, #E5E7EB);
       margin: 0;
-      padding: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
     }
 
     .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+      max-width: 100%;
+      width: 90%;
+      margin: 20px auto;
+      background: rgba(255, 255, 255, 0.97);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
 
     h2 {
       text-align: center;
-      font-size: 24px;
-      color: #1E90FF;
+      font-size: 1.8rem;
+      color: #1F2937;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 30px;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
     }
 
     .form-info {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 15px;
-      margin-bottom: 30px;
-      justify-content: space-between;
+      margin-bottom: 20px;
     }
 
     .info-row {
-      flex: 1 1 30%;
       display: flex;
       flex-direction: column;
     }
 
     .info-row label {
-      font-weight: bold;
+      font-weight: 600;
       margin-bottom: 5px;
-      color: #333;
+      color: #374151;
+      font-size: 0.9rem;
     }
 
     .info-row input {
       padding: 10px;
-      font-size: 14px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      border: 1px solid #D1D5DB;
+      background: #F9FAFB;
+      transition: border-color 0.3s;
+    }
+
+    .info-row input:focus {
+      outline: none;
+      border-color: #3B82F6;
+      box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
+      font-size: 0.85rem;
     }
 
     th, td {
-      padding: 12px 15px;
-      border: 1px solid #DDD;
+      padding: 10px;
+      border: 1px solid #E5E7EB;
       text-align: center;
-      font-size: 15px;
     }
-      background-color: #F1F1F1;
 
     th {
-      color: #1E90FF;
+      background-color: #3B82F6;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
     }
 
     td input, td select {
-      background: #f9f9f9;
+      background: #F9FAFB;
       border: none;
       padding: 8px;
-      border-radius: 5px;
+      border-radius: 6px;
       width: 100%;
-      font-size: 14px;
+      font-size: 0.85rem;
       box-sizing: border-box;
+    }
+
+    td select {
+      appearance: none;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="gray"><path d="M0 0h10v10H0z" fill="none"/><path d="M1 3l4 4 4-4"/></svg>') no-repeat right 8px center;
+      background-size: 10px;
     }
 
     td input:focus, td select:focus {
       outline: none;
-      box-shadow: 0 0 5px 2px rgba(30, 144, 255, 0.3);
+      box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
     }
 
     .add-row {
-  display: block;
-  background: #1E90FF;
-  color: white;
-  padding: 12px;
-  border: none;
-  width: 40%;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 8px;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
+      display: block;
+      background: #3B82F6;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 50%;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border-radius: 8px;
+      margin: 20px auto;
+      transition: background 0.3s;
     }
 
     .add-row:hover {
-      background: #1C86EE;
+      background: #2563EB;
     }
 
     .input-section {
       margin-top: 20px;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 10px;
+      background: #F3F4F6;
+      padding: 15px;
+      border-radius: 10px;
     }
 
     .input-section label {
-      font-size: 22px;
-      font-weight: bold;
-      color: #333;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1F2937;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     #travelAmount,
     #totalAmount {
-      font-size: 28px;
-      color: #1E90FF;
+      font-size: 1.2rem;
+      color: #3B82F6;
       font-weight: bold;
     }
 
     #mealAmount {
-      font-size: 24px;
+      font-size: 1rem;
       font-weight: bold;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background: none;
-      border: none;
-      padding: 5px 10px;
-      color: #1E90FF;
+      background: #F9FAFB;
+      border: 1px solid #D1D5DB;
+      padding: 8px;
+      border-radius: 6px;
+      color: #3B82F6;
       cursor: pointer;
+      width: 100px;
     }
 
     .meal-input option {
-      font-size: 18px;
+      font-size: 0.9rem;
     }
 
-    .messenger-button {
-  display: block;
-  background-color: #1E90FF;
-  color: white;
-  width: 50%;
-  padding: 15px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  margin-top: 30px;
-  font-size: 16px;
-  transition: background-color 0.3s;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-    .messenger-button:hover {
-      background-color: #1C86EE;
-    }
-
-    .save-button {
+    .messenger-button, .save-button {
       display: block;
-      background-color: #28a745;
-      color: white;
-      padding: 15px;
+      width: 50%;
+      padding: 12px;
       text-align: center;
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
-      margin-top: 15px;
-      font-size: 16px;
-      transition: background-color 0.3s;
-      cursor: pointer;
+      font-size: 0.9rem;
+      margin: 15px auto;
+      transition: background 0.3s;
+    }
+
+    .messenger-button {
+      background: #3B82F6;
+      color: white;
+    }
+
+    .messenger-button:hover {
+      background: #2563EB;
+    }
+
+    .save-button {
+      background: #10B981;
+      color: white;
     }
 
     .save-button:hover {
-      background-color: #218838;
+      background: #059669;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+        width: 95%;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .form-info {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        font-size: 0.8rem;
+      }
+
+      th, td {
+        padding: 8px;
+      }
+
+      .add-row, .messenger-button, .save-button {
+        width: 80%;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container" id="captureArea">
-    
-    <!-- 🔲 START OF THE SCREENSHOT AREA -->
     <div id="screenshotArea">
-      <!-- 🔽 ADDED IMAGE ABOVE TITLE -->
-      <img src="https://raw.githubusercontent.com/dandan-187/LIQUIDATION-MONITORING-SYSTEM-DANTER/main/bg.jpg"
-           alt="Background Image"
-           style="max-width: 80%; border-radius: 10px; margin-bottom: 10px;"
-           crossorigin="anonymous" />
+      <img src="bg.jpg" alt="Background Image" style="max-width: 80%; border-radius: 10px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;" crossorigin="anonymous" />
 
       <h2>SYSTECH DIGITAL LIQUIDATION</h2>
 
-      <!-- Repair Form Info -->
       <div class="form-info">
         <div class="info-row">
           <label>Name:</label>
@@ -232,7 +263,6 @@
         </div>
       </div>
 
-      <!-- Travel Table -->
       <table id="dataTable">
         <thead>
           <tr>
@@ -243,40 +273,30 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Initial 6 rows -->
-          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
-          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
-          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
-          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
-          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
-          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option value="">Select MOT</option><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option value="">Select MOT</option><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option value="">Select MOT</option><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option value="">Select MOT</option><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option value="">Select MOT</option><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
+          <tr><td><input type="text" /></td><td><input type="text" /></td><td><select><option value="">Select MOT</option><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td><td><input type="number" value="0" oninput="calculateTotal()" /></td></tr>
         </tbody>
       </table>
 
       <button class="add-row" onclick="addRow()">+ Add Row</button>
 
-      <!-- Totals -->
       <div class="input-section">
         <label>TRAVEL: <span id="travelAmount">0</span></label>
-        <label>MEAL:
-          <select class="meal-input" id="mealAmount" onchange="calculateTotal()">
-            <option value="0">0</option>
-            <option value="80">80</option>
-            <option value="140">140</option>
-            <option value="240">240</option>
-          </select>
-        </label>
-        <label><b>TOTAL: <span id="totalAmount">0</span></b></label>
+        <label>MEAL: <select class="meal-input" id="mealAmount" onchange="calculateTotal()">
+          <option value="0">0</option>
+          <option value="80">80</option>
+          <option value="140">140</option>
+          <option value="240">240</option>
+        </select></label>
+        <label>TOTAL: <span id="totalAmount">0</span></label>
       </div>
     </div>
-    <!-- 🔲 END OF SCREENSHOT AREA -->
 
-    <!-- Messenger Button (excluded from screenshot) -->
-    <a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button">
-      Send to Ma'am Irene
-    </a>
-
-    <!-- Save Button (also excluded from screenshot) -->
+    <a href="https://m.me/ahsey.embile#" target="_blank" class="messenger-button">Send to Ma'am Irene</a>
     <button class="save-button" onclick="saveAsImage()">💾 Save</button>
   </div>
 
@@ -288,15 +308,7 @@
       newRow.innerHTML = `
         <td><input type="text" /></td>
         <td><input type="text" /></td>
-        <td>
-          <select>
-            <option>🚌 BUS</option>
-            <option>🚖 TAXI</option>
-            <option>🛺 TRICYCLE</option>
-            <option>🚋 TRAIN/LRT/MRT</option>
-            <option>🚍 JEEP</option>
-          </select>
-        </td>
+        <td><select><option value="">Select MOT</option><option>🚌 BUS</option><option>🚖 TAXI</option><option>🛺 TRICYCLE</option><option>🚋 TRAIN/LRT/MRT</option><option>🚍 JEEP</option></select></td>
         <td><input type="number" value="0" oninput="calculateTotal()" /></td>
       `;
       calculateTotal();
@@ -314,17 +326,17 @@
     }
 
     function saveAsImage() {
-  const target = document.getElementById('screenshotArea');
-  html2canvas(target, {
-    useCORS: true,
-    scale: 4  // Increase the scale for higher resolution (1 = normal, 2 = HD, 4 = 4K-ish)
-  }).then(canvas => {
-    const link = document.createElement('a');
-    link.download = 'SYSTECH_LIQUIDATION.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-  });
-}
+      const target = document.getElementById('screenshotArea');
+      html2canvas(target, {
+        useCORS: true,
+        scale: 4
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'SYSTECH_LIQUIDATION.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
 
     calculateTotal();
   </script>
