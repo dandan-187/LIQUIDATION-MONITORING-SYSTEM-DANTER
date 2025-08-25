@@ -9,7 +9,7 @@
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #F9E4D4, #D4E4F9);
       margin: 0;
-      padding: 10px;
+      padding: 5px;
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -19,27 +19,27 @@
     .container {
       max-width: 100%;
       width: 95%;
-      margin: 10px auto;
+      margin: 5px auto;
       background: rgba(255, 255, 255, 0.95);
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+      padding: 8px;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     h2 {
       text-align: center;
-      font-size: 1.8rem; /* Bigger title for phone */
+      font-size: 0.9rem; /* Super small title */
       color: #2D3748;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 15px;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
     }
 
     .form-info {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
-      margin-bottom: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 5px;
+      margin-bottom: 5px;
     }
 
     .info-row {
@@ -49,15 +49,15 @@
 
     .info-row label {
       font-weight: 500;
-      margin-bottom: 5px;
+      margin-bottom: 2px;
       color: #4A5568;
-      font-size: 1.2rem; /* Bigger labels for phone */
+      font-size: 0.6rem; /* Super small labels */
     }
 
     .info-row input {
-      padding: 12px;
-      font-size: 1.2rem; /* Bigger input font for phone */
-      border-radius: 8px;
+      padding: 4px;
+      font-size: 0.6rem; /* Super small input font */
+      border-radius: 4px;
       border: 1px solid #CBD5E0;
       background: #EDF2F7;
       transition: border-color 0.3s;
@@ -66,18 +66,18 @@
     .info-row input:focus {
       outline: none;
       border-color: #63B3ED;
-      box-shadow: 0 0 4px rgba(99, 179, 237, 0.3);
+      box-shadow: 0 0 2px rgba(99, 179, 237, 0.3);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 10px;
-      font-size: 1.2rem; /* Bigger table text for phone */
+      margin-top: 5px;
+      font-size: 0.6rem; /* Super small table text */
     }
 
     th, td {
-      padding: 10px;
+      padding: 4px;
       border: 1px solid #E2E8F0;
       text-align: center;
     }
@@ -92,9 +92,9 @@
     td input, td select {
       background: #EDF2F7;
       border: none;
-      padding: 10px;
-      border-radius: 6px;
-      font-size: 1.2rem; /* Bigger input/select font for phone */
+      padding: 2px;
+      border-radius: 3px;
+      font-size: 0.6rem; /* Super small input/select font */
       box-sizing: border-box;
     }
 
@@ -102,33 +102,33 @@
       width: 100%; /* Wide From and To with word wrap */
       word-wrap: break-word;
       white-space: normal;
-      min-height: 50px; /* Adjusted for bigger text */
+      min-height: 20px; /* Adjusted for small text */
     }
 
     td select {
-      width: 100px; /* Wider MOT for readability */
+      width: 60px; /* Narrow MOT */
     }
 
     td input[type="number"] {
-      width: 80px; /* Wider Amount for readability */
+      width: 40px; /* Narrow Amount */
     }
 
     td input:focus, td select:focus {
       outline: none;
-      box-shadow: 0 0 4px rgba(99, 179, 237, 0.3);
+      box-shadow: 0 0 2px rgba(99, 179, 237, 0.3);
     }
 
     .add-row {
       display: block;
       background: #63B3ED;
       color: white;
-      padding: 12px;
+      padding: 6px;
       border: none;
-      width: 60%;
-      font-size: 1.2rem; /* Bigger button text */
+      width: 50%;
+      font-size: 0.6rem; /* Super small button text */
       cursor: pointer;
-      border-radius: 8px;
-      margin: 15px auto;
+      border-radius: 4px;
+      margin: 5px auto;
       transition: background 0.3s;
     }
 
@@ -137,18 +137,18 @@
     }
 
     .input-section {
-      margin-top: 15px;
+      margin-top: 5px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 5px;
       background: #F7FAFC;
-      padding: 12px;
-      border-radius: 8px;
+      padding: 6px;
+      border-radius: 5px;
       border: 1px solid #E2E8F0;
     }
 
     .input-section label {
-      font-size: 1.4rem; /* Bigger section labels */
+      font-size: 0.7rem; /* Super small section labels */
       font-weight: 600;
       color: #2D3748;
       display: flex;
@@ -158,37 +158,37 @@
 
     #travelAmount,
     #totalAmount {
-      font-size: 1.4rem; /* Bigger amounts */
+      font-size: 0.8rem; /* Super small amounts */
       color: #63B3ED;
       font-weight: bold;
     }
 
     #mealAmount {
-      font-size: 1.2rem; /* Bigger meal dropdown */
+      font-size: 0.7rem; /* Super small meal dropdown */
       font-weight: bold;
       background: #EDF2F7;
       border: 1px solid #CBD5E0;
-      padding: 10px;
-      border-radius: 6px;
+      padding: 4px;
+      border-radius: 3px;
       color: #63B3ED;
       cursor: pointer;
-      width: 100px;
+      width: 60px;
     }
 
     .meal-input option {
-      font-size: 1.2rem; /* Bigger options */
+      font-size: 0.6rem; /* Super small options */
     }
 
     .messenger-button, .save-button {
       display: block;
-      width: 60%;
-      padding: 12px;
+      width: 50%;
+      padding: 6px;
       text-align: center;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 4px;
       font-weight: bold;
-      font-size: 1.2rem; /* Bigger button text */
-      margin: 10px auto;
+      font-size: 0.6rem; /* Super small button text */
+      margin: 5px auto;
       transition: background 0.3s;
     }
 
@@ -211,21 +211,31 @@
     }
 
     @media (min-width: 601px) { /* Desktop mode */
+      .container {
+        padding: 15px;
+        width: 90%;
+      }
+
       h2 {
-        font-size: 1.5rem; /* Smaller title */
+        font-size: 1.5rem; /* Normal title */
+      }
+
+      .form-info {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
       }
 
       .info-row label {
-        font-size: 0.85rem; /* Smaller labels */
+        font-size: 0.85rem; /* Normal labels */
       }
 
       .info-row input {
-        font-size: 0.85rem; /* Smaller input font */
+        font-size: 0.85rem; /* Normal input font */
         padding: 8px;
       }
 
       table {
-        font-size: 0.8rem; /* Smaller table text */
+        font-size: 0.8rem; /* Normal table text */
       }
 
       th, td {
@@ -233,60 +243,67 @@
       }
 
       td input, td select {
-        font-size: 0.8rem; /* Smaller input/select font */
+        font-size: 0.8rem; /* Normal input/select font */
         padding: 6px;
       }
 
       td input[type="text"] {
-        min-height: 40px; /* Adjusted for smaller text */
+        min-height: 40px; /* Adjusted for normal text */
       }
 
       td select {
-        width: 80px; /* Narrower MOT */
+        width: 80px; /* Normal MOT */
       }
 
       td input[type="number"] {
-        width: 60px; /* Narrower Amount */
+        width: 60px; /* Normal Amount */
       }
 
       .add-row {
-        font-size: 0.9rem; /* Smaller button text */
+        font-size: 0.9rem; /* Normal button text */
         padding: 10px;
+        width: 60%;
+      }
+
+      .input-section {
+        padding: 12px;
+        gap: 10px;
       }
 
       .input-section label {
-        font-size: 0.95rem; /* Smaller section labels */
+        font-size: 0.95rem; /* Normal section labels */
       }
 
       #travelAmount,
       #totalAmount {
-        font-size: 1.1rem; /* Smaller amounts */
+        font-size: 1.1rem; /* Normal amounts */
       }
 
       #mealAmount {
-        font-size: 0.95rem; /* Smaller meal dropdown */
+        font-size: 0.95rem; /* Normal meal dropdown */
         padding: 6px;
         width: 80px;
       }
 
       .meal-input option {
-        font-size: 0.85rem; /* Smaller options */
+        font-size: 0.85rem; /* Normal options */
       }
 
       .messenger-button, .save-button {
-        font-size: 0.9rem; /* Smaller button text */
+        font-size: 0.9rem; /* Normal button text */
         padding: 10px;
+        width: 60%;
       }
     }
 
     @media (max-width: 600px) {
       .container {
-        padding: 10px;
+        padding: 5px;
         width: 98%;
       }
 
       h2 {
-        font-size: 1.8rem; /* Keep big on phone */
+        font-size: 0.9rem; /* Keep small on phone */
       }
 
       .form-info {
@@ -294,15 +311,15 @@
       }
 
       table {
-        font-size: 1.2rem; /* Keep big on phone */
+        font-size: 0.6rem; /* Keep small on phone */
       }
 
       th, td {
-        padding: 10px;
+        padding: 4px;
       }
 
       .add-row, .messenger-button, .save-button {
-        width: 80%;
+        width: 70%;
       }
     }
   </style>
@@ -310,7 +327,7 @@
 <body>
   <div class="container" id="captureArea">
     <div id="screenshotArea">
-      <img src="bg.jpg" alt="Background Image" style="max-width: 80%; border-radius: 8px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;" />
+      <img src="bg.jpg" alt="Background Image" style="max-width: 80%; border-radius: 5px; margin-bottom: 5px; display: block; margin-left: auto; margin-right: auto;" />
 
       <h2>SYSTECH DIGITAL LIQUIDATION</h2>
 
