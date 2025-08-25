@@ -28,7 +28,7 @@
 
     h2 {
       text-align: center;
-      font-size: 0.9rem; /* Super small title */
+      font-size: 0.9rem;
       color: #2D3748;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -36,8 +36,9 @@
     }
 
     .form-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
       gap: 5px;
       margin-bottom: 5px;
     }
@@ -45,18 +46,20 @@
     .info-row {
       display: flex;
       flex-direction: column;
+      flex: 1 1 100px;
+      min-width: 0;
     }
 
     .info-row label {
       font-weight: 500;
       margin-bottom: 2px;
       color: #4A5568;
-      font-size: 0.6rem; /* Super small labels */
+      font-size: 0.6rem;
     }
 
     .info-row input {
       padding: 4px;
-      font-size: 0.6rem; /* Super small input font */
+      font-size: 0.6rem;
       border-radius: 4px;
       border: 1px solid #CBD5E0;
       background: #EDF2F7;
@@ -73,7 +76,7 @@
       width: 100%;
       border-collapse: collapse;
       margin-top: 5px;
-      font-size: 0.6rem; /* Super small table text */
+      font-size: 0.6rem;
     }
 
     th, td {
@@ -94,23 +97,23 @@
       border: none;
       padding: 2px;
       border-radius: 3px;
-      font-size: 0.6rem; /* Super small input/select font */
+      font-size: 0.6rem;
       box-sizing: border-box;
     }
 
     td input[type="text"] {
-      width: 100%; /* Wide From and To with word wrap */
+      width: 100%;
       word-wrap: break-word;
       white-space: normal;
-      min-height: 20px; /* Adjusted for small text */
+      min-height: 20px;
     }
 
     td select {
-      width: 60px; /* Narrow MOT */
+      width: 60px;
     }
 
     td input[type="number"] {
-      width: 40px; /* Narrow Amount */
+      width: 40px;
     }
 
     td input:focus, td select:focus {
@@ -125,7 +128,7 @@
       padding: 6px;
       border: none;
       width: 50%;
-      font-size: 0.6rem; /* Super small button text */
+      font-size: 0.6rem;
       cursor: pointer;
       border-radius: 4px;
       margin: 5px auto;
@@ -148,7 +151,7 @@
     }
 
     .input-section label {
-      font-size: 0.7rem; /* Super small section labels */
+      font-size: 0.7rem;
       font-weight: 600;
       color: #2D3748;
       display: flex;
@@ -158,13 +161,13 @@
 
     #travelAmount,
     #totalAmount {
-      font-size: 0.8rem; /* Super small amounts */
+      font-size: 0.8rem;
       color: #63B3ED;
       font-weight: bold;
     }
 
     #mealAmount {
-      font-size: 0.7rem; /* Super small meal dropdown */
+      font-size: 0.7rem;
       font-weight: bold;
       background: #EDF2F7;
       border: 1px solid #CBD5E0;
@@ -176,7 +179,7 @@
     }
 
     .meal-input option {
-      font-size: 0.6rem; /* Super small options */
+      font-size: 0.6rem;
     }
 
     .messenger-button, .save-button {
@@ -187,7 +190,7 @@
       text-decoration: none;
       border-radius: 4px;
       font-weight: bold;
-      font-size: 0.6rem; /* Super small button text */
+      font-size: 0.6rem;
       margin: 5px auto;
       transition: background 0.3s;
     }
@@ -210,32 +213,32 @@
       background: #38A169;
     }
 
-    @media (min-width: 601px) { /* Desktop mode */
+    @media (min-width: 601px) {
       .container {
         padding: 15px;
         width: 90%;
       }
 
       h2 {
-        font-size: 1.5rem; /* Normal title */
+        font-size: 1.5rem;
       }
 
       .form-info {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        justify-content: space-between;
         gap: 10px;
       }
 
       .info-row label {
-        font-size: 0.85rem; /* Normal labels */
+        font-size: 0.85rem;
       }
 
       .info-row input {
-        font-size: 0.85rem; /* Normal input font */
+        font-size: 0.85rem;
         padding: 8px;
       }
 
       table {
-        font-size: 0.8rem; /* Normal table text */
+        font-size: 0.8rem;
       }
 
       th, td {
@@ -243,24 +246,24 @@
       }
 
       td input, td select {
-        font-size: 0.8rem; /* Normal input/select font */
+        font-size: 0.8rem;
         padding: 6px;
       }
 
       td input[type="text"] {
-        min-height: 40px; /* Adjusted for normal text */
+        min-height: 40px;
       }
 
       td select {
-        width: 80px; /* Normal MOT */
+        width: 80px;
       }
 
       td input[type="number"] {
-        width: 60px; /* Normal Amount */
+        width: 60px;
       }
 
       .add-row {
-        font-size: 0.9rem; /* Normal button text */
+        font-size: 0.9rem;
         padding: 10px;
         width: 60%;
       }
@@ -271,26 +274,26 @@
       }
 
       .input-section label {
-        font-size: 0.95rem; /* Normal section labels */
+        font-size: 0.95rem;
       }
 
       #travelAmount,
       #totalAmount {
-        font-size: 1.1rem; /* Normal amounts */
+        font-size: 1.1rem;
       }
 
       #mealAmount {
-        font-size: 0.95rem; /* Normal meal dropdown */
+        font-size: 0.95rem;
         padding: 6px;
         width: 80px;
       }
 
       .meal-input option {
-        font-size: 0.85rem; /* Normal options */
+        font-size: 0.85rem;
       }
 
       .messenger-button, .save-button {
-        font-size: 0.9rem; /* Normal button text */
+        font-size: 0.9rem;
         padding: 10px;
         width: 60%;
       }
@@ -303,15 +306,16 @@
       }
 
       h2 {
-        font-size: 0.9rem; /* Keep small on phone */
+        font-size: 0.9rem;
       }
 
       .form-info {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: stretch;
       }
 
       table {
-        font-size: 0.6rem; /* Keep small on phone */
+        font-size: 0.6rem;
       }
 
       th, td {
