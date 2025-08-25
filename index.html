@@ -28,7 +28,7 @@
 
     h2 {
       text-align: center;
-      font-size: 1.5rem;
+      font-size: 1.8rem; /* Bigger title for phone */
       color: #2D3748;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -51,13 +51,13 @@
       font-weight: 500;
       margin-bottom: 5px;
       color: #4A5568;
-      font-size: 0.85rem;
+      font-size: 1.2rem; /* Bigger labels for phone */
     }
 
     .info-row input {
-      padding: 8px;
-      font-size: 0.85rem;
-      border-radius: 6px;
+      padding: 12px;
+      font-size: 1.2rem; /* Bigger input font for phone */
+      border-radius: 8px;
       border: 1px solid #CBD5E0;
       background: #EDF2F7;
       transition: border-color 0.3s;
@@ -73,11 +73,11 @@
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
-      font-size: 0.8rem;
+      font-size: 1.2rem; /* Bigger table text for phone */
     }
 
     th, td {
-      padding: 8px;
+      padding: 10px;
       border: 1px solid #E2E8F0;
       text-align: center;
     }
@@ -92,9 +92,9 @@
     td input, td select {
       background: #EDF2F7;
       border: none;
-      padding: 6px;
-      border-radius: 4px;
-      font-size: 0.8rem;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 1.2rem; /* Bigger input/select font for phone */
       box-sizing: border-box;
     }
 
@@ -102,15 +102,15 @@
       width: 100%; /* Wide From and To with word wrap */
       word-wrap: break-word;
       white-space: normal;
-      min-height: 40px; /* Ensure it wraps properly */
+      min-height: 50px; /* Adjusted for bigger text */
     }
 
     td select {
-      width: 80px; /* MOT width */
+      width: 100px; /* Wider MOT for readability */
     }
 
     td input[type="number"] {
-      width: 60px; /* Short Amount width */
+      width: 80px; /* Wider Amount for readability */
     }
 
     td input:focus, td select:focus {
@@ -122,12 +122,12 @@
       display: block;
       background: #63B3ED;
       color: white;
-      padding: 10px;
+      padding: 12px;
       border: none;
       width: 60%;
-      font-size: 0.9rem;
+      font-size: 1.2rem; /* Bigger button text */
       cursor: pointer;
-      border-radius: 6px;
+      border-radius: 8px;
       margin: 15px auto;
       transition: background 0.3s;
     }
@@ -148,7 +148,7 @@
     }
 
     .input-section label {
-      font-size: 0.95rem;
+      font-size: 1.4rem; /* Bigger section labels */
       font-weight: 600;
       color: #2D3748;
       display: flex;
@@ -158,36 +158,36 @@
 
     #travelAmount,
     #totalAmount {
-      font-size: 1.1rem;
+      font-size: 1.4rem; /* Bigger amounts */
       color: #63B3ED;
       font-weight: bold;
     }
 
     #mealAmount {
-      font-size: 0.95rem;
+      font-size: 1.2rem; /* Bigger meal dropdown */
       font-weight: bold;
       background: #EDF2F7;
       border: 1px solid #CBD5E0;
-      padding: 6px;
-      border-radius: 4px;
+      padding: 10px;
+      border-radius: 6px;
       color: #63B3ED;
       cursor: pointer;
-      width: 80px;
+      width: 100px;
     }
 
     .meal-input option {
-      font-size: 0.85rem;
+      font-size: 1.2rem; /* Bigger options */
     }
 
     .messenger-button, .save-button {
       display: block;
       width: 60%;
-      padding: 10px;
+      padding: 12px;
       text-align: center;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: bold;
-      font-size: 0.9rem;
+      font-size: 1.2rem; /* Bigger button text */
       margin: 10px auto;
       transition: background 0.3s;
     }
@@ -210,6 +210,75 @@
       background: #38A169;
     }
 
+    @media (min-width: 601px) { /* Desktop mode */
+      h2 {
+        font-size: 1.5rem; /* Smaller title */
+      }
+
+      .info-row label {
+        font-size: 0.85rem; /* Smaller labels */
+      }
+
+      .info-row input {
+        font-size: 0.85rem; /* Smaller input font */
+        padding: 8px;
+      }
+
+      table {
+        font-size: 0.8rem; /* Smaller table text */
+      }
+
+      th, td {
+        padding: 8px;
+      }
+
+      td input, td select {
+        font-size: 0.8rem; /* Smaller input/select font */
+        padding: 6px;
+      }
+
+      td input[type="text"] {
+        min-height: 40px; /* Adjusted for smaller text */
+      }
+
+      td select {
+        width: 80px; /* Narrower MOT */
+      }
+
+      td input[type="number"] {
+        width: 60px; /* Narrower Amount */
+      }
+
+      .add-row {
+        font-size: 0.9rem; /* Smaller button text */
+        padding: 10px;
+      }
+
+      .input-section label {
+        font-size: 0.95rem; /* Smaller section labels */
+      }
+
+      #travelAmount,
+      #totalAmount {
+        font-size: 1.1rem; /* Smaller amounts */
+      }
+
+      #mealAmount {
+        font-size: 0.95rem; /* Smaller meal dropdown */
+        padding: 6px;
+        width: 80px;
+      }
+
+      .meal-input option {
+        font-size: 0.85rem; /* Smaller options */
+      }
+
+      .messenger-button, .save-button {
+        font-size: 0.9rem; /* Smaller button text */
+        padding: 10px;
+      }
+    }
+
     @media (max-width: 600px) {
       .container {
         padding: 10px;
@@ -217,7 +286,7 @@
       }
 
       h2 {
-        font-size: 1.3rem;
+        font-size: 1.8rem; /* Keep big on phone */
       }
 
       .form-info {
@@ -225,11 +294,11 @@
       }
 
       table {
-        font-size: 0.75rem;
+        font-size: 1.2rem; /* Keep big on phone */
       }
 
       th, td {
-        padding: 6px;
+        padding: 10px;
       }
 
       .add-row, .messenger-button, .save-button {
